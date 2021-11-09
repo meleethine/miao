@@ -26,7 +26,6 @@
 
  
     <a href="#bottom">跳到页面底部</a>
-
     <a
       href="stock-photo-229389427.jpg"
       download="grape"
@@ -35,8 +34,8 @@
     <br />
     <img
       src="stock-photo-229389427.jpg"
-      width="300"
-      height="320"
+      width="200"
+      height="200"
       alt="显示错误"
     />
     <hr />
@@ -88,6 +87,135 @@
       </dt>
     </dl>
     <hr>
-   <div id="bottom"></div>
+    <br>
+    <div>
+    <strong>Google搜索</strong> </div>
+    <br>
+    <form target="_blank" action="https://www.google.com/search">
+      <input type="text" name="q"> <button>在新窗口打开搜索结果</button>
+    </form>
+   
+   <hr>
+   <form action="">
+   <table>
+     <p>个人信息调查表</p>
+     <tr>
+       <td>性别</td>
+       <td>
+         <input type="radio" name="sex" id="male" value="male">
+         <label for="male">男</label>
+         <input type="radio" name="sex" id="female" value="female">
+         <label for="female">女</label>
+       </td>
+     </tr>
+     <tr>
+       <td>年龄</td>
+       <td>
+         <select>
+           <option hidden>请选择</option>
+           <optgroup label="少年"></optgroup>
+           <option>1到6岁</option>
+           <option>6到12岁</option>
+           <optgroup label="青年"></optgroup>
+           <option>13到15岁</option>
+           <option>16到18岁</option>
+           <optgroup label="壮年"></optgroup>
+           <option>19到32岁</option>
+           <option>33到45岁</option>
+         </select>
+       </td>
+     </tr>
+     <tr>
+       <td>生日</td>
+       <td>
+         <input type="date">
+       </td>
+     </tr>
+     <tr>
+      <td>生辰</td>
+      <td>
+        <input type="time">
+      </td>
+    </tr>
+     <tr>
+       <td>照片</td>
+       <td>
+        <label>
+          <input type="file" name="avatar" hidden>
+          点我上传照片,我比文件上传按钮好看
+        </label> 
+        
+       </td>
+     </tr>
+     <tr>
+       <td>肤色</td>
+       <td>
+         <input type="color">
+       </td>
+     </tr>
+     <tr>
+       <td>自我介绍</td>
+       <td>
+         <textarea name="" id="" cols="30" rows="10">&lt;/textarea></textarea>
+       </td>
+     </tr>
+     <tr>
+       <td>
+       
+       </td>
+        <td>
+          <fieldset disabled>
+            <legend>这里面的全都禁用了</legend>
+              <input type="text"><br>
+              <input type="text"><br>
+              <input type="text"><br>
+              <input type="text">
+          </fieldset>
+        </td>
+        
+     </tr>
+     <tr>
+       <td>
+        <button>提交</button>
+        <button type="reset">重置</button>
+       </td>
+     </tr>
+      
+   </table>
+  </form>
+<hr>
+  <table border="1">
+    <tr>
+      <th>编号</th>
+      <th>品名</th>
+      <th>进价</th>
+      <th>出价</th>
+    </tr>
+    <tr>
+      <th>aaa</th>
+      <td>aaa</td>
+      <td rowspan="2">5</td>
+      <td>aaa</td>
+    </tr>
+    <tr>
+      <th>aaa</th>
+      <td>aaa</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>aaa</th>
+      <td>aaa</td>
+      <td>aaa</td>
+      <td>aaa</td>
+    </tr>
+    <tr>
+      <th>aaa</th>
+      <td>aaa</td>
+      <td>aaa</td>
+      <td>aaa</td>
+    </tr>
+  </table>
+  <hr>
+  <div id="bottom"></div>
   </body>
 </html>
