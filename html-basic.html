@@ -97,73 +97,52 @@
    
    <hr>
    <form action="">
-   <table>
      <p>个人信息调查表</p>
-     <tr>
-       <td>性别</td>
-       <td>
+       <dt>性别</dt>
+       <dd>
+         
          <input type="radio" name="sex" id="male" value="male">
          <label for="male">男</label>
          <input type="radio" name="sex" id="female" value="female">
          <label for="female">女</label>
-       </td>
-     </tr>
-     <tr>
-       <td>年龄</td>
-       <td>
+       </dd>
+       <dt>年龄</dt>
+       <dd>
          <select>
            <option hidden>请选择</option>
            <optgroup label="少年"></optgroup>
-           <option>1到6岁</option>
-           <option>6到12岁</option>
+           <option value="1-6">1到6岁</option>
+           <option value="6-12">6到12岁</option>
            <optgroup label="青年"></optgroup>
-           <option>13到15岁</option>
-           <option>16到18岁</option>
+           <option value="13-15">13到15岁</option>
+           <option value="16-18">16到18岁</option>
            <optgroup label="壮年"></optgroup>
-           <option>19到32岁</option>
-           <option>33到45岁</option>
+           <option value="19-32">19到32岁</option>
+           <option value="33-45">33到45岁</option>
          </select>
-       </td>
-     </tr>
-     <tr>
-       <td>生日</td>
-       <td>
+        </dd>
+       <dt>生日</dt>
+       <dd>
          <input type="date">
-       </td>
-     </tr>
-     <tr>
-      <td>生辰</td>
-      <td>
+       </dd>
+      <dt>生辰</dt>
+      <dd>
         <input type="time">
-      </td>
-    </tr>
-     <tr>
-       <td>照片</td>
-       <td>
-        <label>
-          <input type="file" name="avatar" hidden>
-          点我上传照片,我比文件上传按钮好看
-        </label> 
-        
-       </td>
-     </tr>
-     <tr>
-       <td>肤色</td>
-       <td>
+      </dd>
+       <dt>照片</dt>
+       <dd>
+          <input type="file" name="avatar" id="avatar" hidden >
+          <label for="avatar">点我上传照片,我比文件上传按钮好看</label> 
+       </dd>
+       <dt>肤色</dt>
+       <dd>
          <input type="color">
-       </td>
-     </tr>
-     <tr>
-       <td>自我介绍</td>
-       <td>
+       </dd>
+       <dt>自我介绍</dt>
+       <dd>
          <textarea name="" id="" cols="30" rows="10">&lt;/textarea></textarea>
-       </td>
-     </tr>
-     <tr>
-       <td>
-       
-       </td>
-        <td>
+       </dd>
+   </dl>
           <fieldset disabled>
             <legend>这里面的全都禁用了</legend>
               <input type="text"><br>
@@ -171,17 +150,8 @@
               <input type="text"><br>
               <input type="text">
           </fieldset>
-        </td>
-        
-     </tr>
-     <tr>
-       <td>
         <button>提交</button>
         <button type="reset">重置</button>
-       </td>
-     </tr>
-      
-   </table>
   </form>
 <hr>
   <table border="1">
