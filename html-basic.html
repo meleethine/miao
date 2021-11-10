@@ -94,7 +94,6 @@
     <form target="_blank" action="https://www.google.com/search">
       <input type="text" name="q"> <button>在新窗口打开搜索结果</button>
     </form>
-   
    <hr>
    <form action="">
      <p>个人信息调查表</p>
@@ -155,6 +154,16 @@
   </form>
 <hr>
   <table border="1">
+    <!-- 自动居中表格,鲜少用 -->
+    <caption>成绩单</caption>
+    <!-- col表列,优先级低于th -->
+    <col>
+    <col bgcolor=red>
+    <!-- 两列同时设置颜色
+    <colgroup bgcolor=yellow>
+    <col>
+    <col>
+    </colgroup> -->
     <tr>
       <th>编号</th>
       <th>品名</th>
@@ -186,6 +195,25 @@
     </tr>
   </table>
   <hr>
-  <div id="bottom"></div>
+  <!-- 点击图片中方及圆区域跳转到百度,若href="#"未设置跳转到顶部 -->
+  <img width="300" usemap="#map1" src="stock-photo-174778125.jpg" alt="">
+  <map name="map1">
+    <!-- 左上角加右下角坐标 -->
+    <area shape="rect" coords="55,110,210,200" href="https://baidu.com/" alt="">
+    <!-- 圆心(x,y)+半径 -->
+    <area shape="circle" coords="135,260,90" href="https://baidu.com/" alt="">
+  </map>
+  <hr>
+  <a target="frame1" href="https://www.mi.com/">小米</a>
+  <div></div>
+  <!-- frameborder设置边框,实际尝试无变化 -->
+  <iframe name=frame1 src="https://nodejs.org" frameborder="1"></iframe>
+
+  <p>aaa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbbbb</p>
+  <pre>aaa           bbbb</pre>
+>>>>>>>>>>>>>>>>><<<<<<<<<<
+&lt;span&gt;&lt;/span> 
+
+<div id="bottom"></div>
   </body>
 </html>
