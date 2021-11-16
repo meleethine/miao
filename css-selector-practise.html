@@ -5,75 +5,77 @@
     <meta charset="utf-8">
     <title>Document</title>
     <style>
-      body> :nth-child(1) {
-        color: red;
-      }
-      body>:nth-child(2):hover{
-        color: red;
-      }
-      body>:nth-child(2):active{
-        color: green;
-      }
-      body>:nth-child(2):focus{
-        color: blue;
-      }
-      .c span :nth-child(1){
-        color: green;
-      }
-      .c span :nth-child(2){
-        color: blue;
-      }
-      .c span{
-        color: red;
-      }
-      div a {
+    p.red1{
+      color: red;
+    }
+    
+    p.a[tabindex="1"]:focus{
       color: blue;
-      }
-      a:visited{
-        color: orange;
-      }
-      [href^="https:"]{
-        color: pink;
-      }
-      [href^="mailto" i]{
-        color: blue;
-      }
-      [href^="tel:" i]{
-        color: yellow;
-      }
-      [href^="aaa"]{
-        font-size: 30px;
-      }
-     div.a>ul>li:nth-child(n+4):nth-last-child(n+4){
-       color: red;
-     }
-     div.b>ul>li:nth-child(n):nth-last-child(n+76){
-       color: red;
-     }
-     div.b>ul>li:nth-child(n+65){
-       color: green;
-     }
-     div.b>ul>li:nth-child(n+35):nth-last-child(n+51){
-       color: blue;
-     }
-     div.prime>ul>li:nth-child(n+2){
-       color: cornflowerblue;
-     }
-     div.prime>ul>li:nth-child(2n+4){
-       color:darkmagenta;
-     }
-     div.prime>ul>li:nth-child(3n+6){
-      color:darkmagenta;
-     }
-     div.prime>ul>li:nth-child(5n+10){
-      color:darkmagenta;
-     }
+    }
+    
+    
+    p.a[tabindex="1"]:hover{
+      color:red
+    }
+    p.a[tabindex="1"]:active{
+      color: green;
+    }
+    .c>span :nth-child(1){
+      color: green;
+    }
+    .c>span :nth-child(2){
+      color: blue;
+    }
+    .c>span{
+      color: red;
+    }
+    
+    /* 不可用link,链接范围太大,邮件电话都会错选 */
+   
+    div a:visited{
+      color: orange;
+    }
+    [href^="https" i]{
+      color: pink;
+    }
+    [href^="mailto" i]{
+      color: blue;
+    }
+    [href^="tel" i]{
+      color: yellow;
+    }   
+    [href^="aaa" i]{
+    font-size: 30px;
+    }  
+    div.a ul>:nth-child(4),
+    div.a ul>:nth-child(5),
+    div.a ul>:nth-child(6),
+    div.a ul>:nth-child(7)
+    {
+      color: red;
+    } 
+    .b ul :nth-child(-n+25){
+      color: red;
+    }
+    .b ul :nth-child(n+65){
+      color: green;
+    }
+    .b ul :nth-child(n+35):nth-last-child(n+51){
+      color: blue;
+    }
+    .prime ul :nth-child(1),
+    .prime ul :nth-child(2n+4),
+    .prime ul :nth-child(3n+6),
+    .prime ul :nth-child(5n+10),
+    .prime ul :nth-child(7n+14){
+      color: violet;
+    }
     </style>
   </head>
   <body>
     <p class="red1">红色</p>
 
-    <p class="a" tabindex="1" id="x">鼠标悬浮时为红色，按下去时为绿色，获得焦点时为蓝色</p>
+    <p class="a" tabindex="1" >鼠标悬浮时为红色，按下去时为绿色，获得焦点时为蓝色</p>
 
     <p class="a c">
       <span>
