@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header {
+        background-color: red;
+        min-width: 200px;
+      }
+      nav {
+        width: 600px;
+        margin: auto;
+      }
+      main {
+        padding: 20px 10px;
+        max-width: 600px;
+        /* margin不auto则不居中,偏置一方 */
+        margin: auto;
+        /* margin无top则超过border部分为0,与上方元素会紧贴 */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 2px solid;
+        box-sizing: border-box;
+      }
+      main .a {
+        height: 4em;
+        overflow-y: scroll;
+      }
+      main .b {
+        height: 4em;
+        overflow: auto;
+      }
+      main .c {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        height: 50px;
+        background-color: magenta;
+      }
+      main .c:hover {
+        /* 不要指定颜色 */
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+      section{
+        margin: auto;
+        width: 0;
+        /* 边线不写形式solid dotted等会默认无,不显示 */
+        border:50px solid red;
+        /* 画三角形用border-color */
+        border-color: transparent transparent orange transparent;
+
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>aaaaa</nav>
+    </header>
+    <main>
+      <div class="a">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae sapiente
+        voluptas officiis, praesentium, nemo iure cumque nihil, facere hic
+        asperiores dicta commodi magni, voluptates eaque esse atque nesciunt!
+        Cupiditate, modi.
+      </div>
+      <div class="c"></div>
+      <div class="b">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi
+        accusantium deleniti consequuntur, enim nulla voluptatum qui ducimus
+        esse rem eius eligendi consequatur sint. Sunt ut, est iusto neque
+        numquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Laboriosam animi perspiciatis eos, molestias provident, quae ullam!
+        Obcaecati suscipit optio labore iusto veniam facere, amet officiis,
+        eveniet voluptatibus molestiae, dignissimos dolor!
+      </div>
+      <section></section>
+    </main>
+  </body>
+</html>
