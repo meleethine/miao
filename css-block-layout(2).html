@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: auto;
+    box-sizing: border-box;
+  }
+  body{
+    margin:0;
+  }
+  
+  header{
+    color: white;
+    text-align: center;
+    background-color: black;
+    margin:0;
+  }
+  
+  p.b{
+    margin-top: 20px;
+    display: block;
+    height: 100px;
+    width: 600px;
+  }
+  /* 勿给c加inline-box会错,非与其它拼行内块 */
+  #c{
+    margin-top: 200px;
+    width: 600px;
+    margin: auto;
+  }
+  .box{
+    border: 3px black solid ;
+    background-color: pink;
+    margin-top: 20px;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+  }
+  
+  .box:nth-child(3n+1){
+    margin-left: 0;
+  } 
+  .box:nth-child(3n+2){
+    margin-left: 210px;
+    margin-top: -50px;
+  } 
+  .box:nth-child(3n+3){
+    margin-left: 420px;
+    margin-top: -50px;
+  } 
+  /* 做法2给link包一层div,给div设置高度,超出部分(即最下方要隐去的dashed线)overflowhidden
+  div .l{
+    overflow: hidden;
+    height: 150px;
+    
+  } */
+  /* 做法1最后线隐掉 */
+  
+  
+  .l p{
+    border-bottom: 1px dashed black;
+  }
+  /* transparent选中但未生效,考虑优先级问题,可将此标签后置并多加前缀 */
+  p.e{
+  border-bottom: transparent;
+  }
+  .fg{
+    height: 50px;
+    background-color: violet;
+    text-align: center;
+  }
+ 
+ 
+</style>
+<body>
+  <header>
+    <nav class="a">hello world 请调整浏览器窗口大小查看效果</nav>
+  </header>
+  <!-- 为何用div布局乱 -->
+  <p class="b">
+    页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+    宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+    宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+    宽度600px
+  </p>
+  <div id="c">
+    <div class="box">宽180高40(包含边框)</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">水平间隙30px</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">垂直间隙15px</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">边框宽度3px</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">宽180高40(包含边框)</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">水平间隙30px</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">垂直间隙15px</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="box">边框宽度3px</div>
+    <div class="box">产品</div>
+    <div class="box">产品</div>
+    <div class="l">
+      <p class="d">link</p>
+      <p class="d">link</p>
+      <p class="d">link</p>
+      <p class="d e">link</p>
+    </div>
+    
+  </div>
+  <div class="fg">
+    <p class="f">©版权所有</p> 
+    <p class="g">本页所有布局均使用块元素</p>
+  </div>
+  
+</body>
+</html>

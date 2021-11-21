@@ -24,13 +24,18 @@
         margin: 16px auto;
       }
 
-      #c {
+      #c1 {
         width: 600px;
-        margin: 0 auto;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      #c2 {
+        width: 600px;
+        margin: auto;
         margin-bottom: 20px;
       }
 
-      div:not([id="c"]) {
+      .box {
         margin-top: 15px;
         width: 180px;
         height: 40px;
@@ -39,14 +44,15 @@
         text-align: center;
         line-height: 40px;
       }
-      div:not([id="c"]):hover {
+      .box:hover {
         background-color: red;
       }
-      div:nth-child(3n + 2) {
+      /* margin-left正值往右移动,margin-top负值往上移 */
+      .box:nth-child(3n+2) {
         margin-left: 210px;
         margin-top: -46px;
       }
-      div:nth-child(3n + 3) {
+      .box:nth-child(3n+3) {
         margin-left: 420px;
         margin-top: -46px;
       }
@@ -83,19 +89,33 @@
       页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
       宽度600px
     </p>
-    <div id="c">
-      <div>宽180高40(包含边框)</div>
-      <div>产品</div>
-      <div>产品</div>
-      <div>水平间隙30px</div>
-      <div>产品</div>
-      <div>产品</div>
-      <div>垂直间隙15px</div>
-      <div>产品</div>
-      <div>产品</div>
-      <div>边框宽度3px</div>
-      <div>产品</div>
-      <div>产品</div>
+    <div id="c1">
+      <div class="box">宽180高40(包含边框)</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+      <div class="box">水平间隙30px</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+      <div class="box">垂直间隙15px</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+      <div class="box">边框宽度3px</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+    </div>
+    <div id="c2">
+      <div class="box">宽180高40(包含边框)</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+      <div class="box">水平间隙30px</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+      <div class="box">垂直间隙15px</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
+      <div class="box">边框宽度3px</div>
+      <div class="box">产品</div>
+      <div class="box">产品</div>
     </div>
     <p class="d">link</p>
     <p class="d">link</p>
