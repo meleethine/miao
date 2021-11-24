@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   body {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    ul{
+      padding: 0;
+      margin:0;
+      list-style-type: none;
+      }
+    .menu > li{
+      display: inline-block;
+      text-align: center;
+      
+      
+      border: 1px solid mediumaquamarine;
+    }
+    .menu>li:first-child{
+      border-right: transparent;
+    }
+    .menu ul{
+      display: none;
+      background-color: lightblue;
+      position: absolute;
+    }
+    /* 被选中的标签下面的ul标签块现形 */
+    li:hover>ul{
+      display: block;
+    }
+    .menu>li:hover{
+      background-color: orange;
+    }
+    ul>li:hover{
+      background-color: palegoldenrod;
+    }
+    ul li{
+      position: relative;
+    }
+    /* 除过前两个ul,选中第三个ul标签及其以后 */
+    /* ul的子元素只能是li,不能是ul,逻辑错误 */
+     ul ul ul{
+      left: 100%;
+      top: 0;
+    }
+    /* ul ul ul ul{
+      left: 100%;
+      top: 0;
+    } */
+    ul ul li{
+      box-sizing: border-box;
+      border:  1px solid yellow;
+      padding: 5px 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <ul class="menu">
+      <li>Asia
+        <ul>
+          <li>China
+              <ul>
+                <li>Beijing
+                  <ul>
+                    <li>Chaoyang
+                      <ul>
+                        <li>Sanlitun</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>Xiamen</li>
+                <li>Shanghai</li>
+              </ul>
+          </li>
+          <li>Tokyo
+            <ul>
+              <li>Osaka</li>
+            </ul>
+          </li>
+          <li>Korea</li>
+        </ul>
+      </li><li>Europe
+        <ul>
+          <li>France
+            <ul>
+              <li>Paris</li>
+            </ul>
+          </li>
+          <li>German
+            <ul>
+              <li>Berlin</li>
+            </ul>
+          </li>
+          <li>England</li>
+        </ul>
+      </li>
+    </ul>
+  </header>
+</body>
+</html>
