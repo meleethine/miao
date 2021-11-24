@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <style>
+      div{
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border: 1px solid pink;
+        position: relative;
+      }
+      img{
+        left: 0;
+        position: absolute;
+      }
+      img:hover {
+        left: -2800px;
+        transition: 1s steps(28);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <img src="web_heart_animation.png">
+    </div>
+  </body>
+</html>
