@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      header {
+        text-align: center;
+        color: white;
+        background-color: black;
+        margin: 0;
+        min-width: 200px;
+      }
+      .a {
+        margin: auto;
+        width: 600px;
+      }
+      .b {
+        width: 600px;
+        margin: 16px auto;
+      }
+
+      #c {
+        width: 600px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+
+      div:not([id="c"]) {
+        margin-top: 15px;
+        width: 180px;
+        height: 40px;
+        border: 3px solid black;
+        background-color: pink;
+        text-align: center;
+        line-height: 40px;
+      }
+      div:not([id="c"]):hover {
+        background-color: red;
+      }
+      /* margin-left正值往右移动,margin-top负值往上移 */
+      div:nth-child(3n + 2) {
+        margin-left: 210px;
+        margin-top: -46px;
+      }
+      div:nth-child(3n + 3) {
+        margin-left: 420px;
+        margin-top: -46px;
+      }
+      p.d{
+        margin: auto;
+        width: 590px;
+        border-bottom: 1px dashed black ;
+      }
+      p.e{
+        border-bottom: transparent;
+      }
+      p.f{
+        margin: 0;
+        text-align: center;
+        background-color: violet;
+      }
+      p.g{
+        margin: 0;
+        text-align: center;
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="a">hello world 请调整浏览器窗口大小查看效果</nav>
+    </header>
+    <!-- 为何用div布局乱 -->
+    <p class="b">
+      页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+      宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+      页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+      宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+      页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+      宽度600px
+    </p>
+    <div id="c">
+      <div>宽180高40(包含边框)</div>
+      <div>产品</div>
+      <div>产品</div>
+      <div>水平间隙30px</div>
+      <div>产品</div>
+      <div>产品</div>
+      <div>垂直间隙15px</div>
+      <div>产品</div>
+      <div>产品</div>
+      <div>边框宽度3px</div>
+      <div>产品</div>
+      <div>产品</div>
+    </div>
+    <p class="d">link</p>
+    <p class="d">link</p>
+    <p class="d">link</p>
+    <p class="d e">link</p>
+    <p class="f">©版权所有</p> 
+    <p class="g">本页所有布局均使用块元素</p>
+  </body>
+</html>
