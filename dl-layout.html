@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      
+      /* @@浮动做法,注释该行 */
+       dt{
+        clear: both;
+        margin-top: 5px;
+        width: 70px;
+        text-align: right;
+        padding-right: 10px;
+        margin-bottom: -20px;
+      }
+      dd{
+        background-color: pink;
+        margin: 0;
+        float: left;
+
+      }
+      dt + dd{
+        margin-left: 75px;
+      }
+      dt + dd::before{
+        content: none;
+      }
+      dd::before{
+        content: ",";
+      }
+
+      /* 
+      @@行内做法,注释该行
+      浮动之后周围块感知不到它,但块中文本依旧可感知,会绕着走.
+      dl{
+        margin: 0;
+        padding: 0;
+      }
+      dt{
+        margin-bottom: -20px;
+      }
+      dd{
+        margin: 0;
+        display: inline-block;
+      }
+      dt + dd {
+        margin-left:70px ;
+      } */
+      
+    </style>
+  </head>
+  <body>
+    <dl>
+      <dt>导演</dt>
+      <dd>李安</dd>
+      <dd>王家卫</dd>
+      <dd>徐克</dd>
+
+      <dt>领角主演</dt>
+      <dd>梁朝伟</dd>
+      <dd>古天乐</dd>
+      <dd>张智霖</dd>
+      <dd>郑伊健</dd>
+      <dd>陈小春</dd>
+      <dd>刘嘉玲</dd>
+
+      <dt>主演</dt>
+      <dd>黄纪莹</dd>
+      <dd>袁咏仪</dd>
+      <dd>应采儿</dd>
+    </dl>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul{
+      margin: 0;
+      padding: 0;
+      border: 2px yellow solid;
+      list-style: none;
+      display: flow-root;
+      width: 158px;
+      padding-bottom: 2px;
+    }
+    /* 细微处不合适内部用padding,外部用margin调整 */
+    /* line-height=height纵向居中 */
+    li{
+      width: 50px;
+      height: 50px;
+      border: solid 2px violet;
+      float: left;
+      text-align: center;
+      margin-right: -2px;
+      margin-bottom: -2px;
+      text-align: center;
+      line-height: 50px;
+    }
+    /* 定位优先级高于常规流 */
+    li:hover{
+      border: 2px solid red;
+      position: relative;
+    }
+   /* td边框与table无关,加错乱布局 */
+    table{
+      border-collapse:collapse;
+
+    }
+    /* col与tr是兄弟单位 */
+    tr,col{
+      border: 2px solid blue; 
+    }
+    /* solid的优先级大于ridge\groove\inset\outset等 */
+    td{
+      width: 50px;
+      height: 50px;
+      text-align: center;
+    }
+    td:hover{
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+  <br>
+  <table>
+    <col>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <col>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <col>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </table>
+</body>
+</html>
