@@ -18,9 +18,155 @@
   console.log((a + b) / c);
 </script>
 
-<script  id="ch0103/04">
+<script type="x" id="ch0103/04">
   var a = Number(prompt("a"));
   var b = Number(prompt("b"));
   console.log(a / b);
   console.log(a % b);
+</script>
+
+<script type="x" id="ch0103/05">
+  var a = Number(prompt("a"));
+  var b = Number(prompt("b"));
+  var c = a / b;
+  c = c.toFixed(9);
+  console.log(c);
+</script>
+
+<script type="x" id="ch0103/06">
+  var a = Number(prompt("a"));
+  var b = Number(prompt("b"));
+  var c = b / a;
+  var d = c.toFixed(6)*100;
+  console.log(d+'%');
+</script>
+
+<script type="x" id="ch0103/07">
+  var a = Number(prompt("a"));
+  var b = Number(prompt("b"));
+  var c = b / a;
+  var d = c.toFixed(6)*100;
+  console.log(d+'%');
+</script>
+
+<script type="x" id="ch0103/08">
+  var a=Number(prompt("a"));
+  var b=Number(prompt("b"));
+  var c=Number(prompt("c"));
+  var d=Number(prompt("d"));
+  var x=Number(prompt("x"));
+  var p=x*x*x*a+x*x*b+x*c+d;
+  p=p.toFixed(5);
+  console.log(p);
+</script>
+
+<script type="x" id="ch0103/09">
+  const pi=3.14159;
+  var r=Number(prompt("r"));
+  var d=r*2;
+  var p=r*2*pi;
+  p=p.toFixed(4)
+  var s=r*r*pi;
+  s=s.toFixed(4)
+  console.log(r);
+  console.log(p);
+  console.log(s);
+</script>
+
+<script type="x" id="ch0103/10">
+  var r1=Number(prompt("r1"));
+  var r2=Number(prompt("r2"));
+  var R = 1/(1/r1 + 1/r2);
+  R =R.toFixed(2);
+  console.log(R);
+</script>
+
+<script type="x" id="ch0103/11">
+  var a = Number(prompt("a"));
+  var b = Number(prompt("b"));
+  var r = a / b;
+  r = a - k * b;
+  console.log(r);
+</script>
+
+<script type="x" id="ch0103/12">
+  const pi=3.14;
+  var r = Number(prompt("r"));
+  var V=4/3*π*r*r*r;
+  V=V.toFixed(2);
+  console.log(V);
+</script>
+
+<script type="x" id="ch0103/13">
+   var a = Number(prompt("a"));
+   var h=parseInt(a/100);
+  var m=parseInt((a-h*100)/10);
+  var s=parseInt(a-h*100-m*10);
+   console.log(s,m,h);
+</script>
+
+<script type="x" id="ch0103/14">
+  const V1=20000;
+  const pi=3.14159;
+  var V2=Pi * r * r * h;
+  var a= V1/V2;
+  a=parseInt(a)+1;
+  console.log(a);
+</script>
+
+<script type="x" id="ch0103/15">
+  var n = Number(prompt("n"));
+  var x = Number(prompt("x"));
+  var y = Number(prompt("y"));
+  var p = n - y / x;
+  p = parseInt(p) - 1;
+  console.log(p);
+</script>
+
+<script type="x" id="ch0103/16">
+  var x1 = Number(prompt("x1"));
+  var x2 = Number(prompt("x2"));
+  var y1 = Number(prompt("y1"));
+  var y2 = Number(prompt("y2"));
+  var p = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+  console.log(p);
+</script>
+
+<script type="x" id="ch0103/17">
+  var x1 = Number(prompt("x1"));
+  var x2 = Number(prompt("x2"));
+  var x3 = Number(prompt("x3"));
+  var y1 = Number(prompt("y1"));
+  var y2 = Number(prompt("y2"));
+  var y3 = Number(prompt("y3"));
+  var x = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
+  var y = (x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1);
+  var z = (x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2);
+  var a = sqrt(x);
+  var b = sqrt(y);
+  var c = sqrt(z);
+  var p = (a + b + c) / 2;
+  var s = sqrt(p * (p - a) * (p - b) * (p - c));
+  console.log(s);
+</script>
+
+<script type="x" id="ch0103/18">
+  var a1 = Number(prompt("a1"));
+  var a2 = Number(prompt("a2"));
+  var n = Number(prompt("n"));
+  var d = a2 - a1;
+  var an = a1 + (n - 1) * d;
+  console.log(an);
+</script>
+
+<script  id="ch0103/19">
+  var A = Number(prompt("A"));
+  var B = Number(prompt("B"));
+  console.log(A*B);
+</script>
+
+<script type="x" id="ch0103/20">
+  var n = Number(prompt("n"));
+  var p = Math.pow(2, n);
+  console.log(p);
 </script>
