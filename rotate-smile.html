@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 做法1 常规
+      body {
+        animation: rotate 10s linear 999 reverse;
+      }
+      span {
+        display: inline-block;
+        animation: rotate 10s linear 999;
+      }
+      @keyframes rotate {
+        to {
+          transform: rotate(0deg);
+        }
+        from {
+          transform: rotate(360deg);
+        }
+      } */
+      html {
+        zoom: 3;
+      }
+      body {
+        margin-top: 100px;
+        text-align: center;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0) translate(50px)  rotate(0);
+        }
+        to {
+          transform: rotate(360deg) translate(50px) rotate(-360deg);
+        }
+      }
+      span {
+        display: inline-block;
+        animation: rotate 3s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <span
+      >😵</span>
+  </body>
+</html>

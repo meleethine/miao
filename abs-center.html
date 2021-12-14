@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .parent1 {
+        margin-left: 100px;
+
+        width: 200px;
+        height: 200px;
+        border: 5px solid blueviolet;
+      }
+      .son1 {
+        width: 150px;
+        height: 100px;
+        background-color: aqua;
+      }
+      .parent2 {
+        margin-left: 100px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        width: 200px;
+        height: 100px;
+        border: 5px solid blueviolet;
+      }
+      .son2 {
+        width: 200px;
+        height: 240px;
+        border: 3px solid aqua;
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+      /* s1/2定位实现 */
+      .s1 {
+        position: relative;
+      }
+      .s2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+        /* 文字垂直居中 */
+        line-height: 100px;
+        /* 没有禁止换行会超出自动换行，2个行高 */
+        white-space: nowrap;
+      }
+      /* s3/4边距无法实现 */
+      .s4 {
+        margin:auto;
+        text-align: center;
+        line-height: 100px;
+        white-space: nowrap;
+      }
+      /* s5/6行内块实现 */
+      .s5 {
+        text-align: center;
+        /* 父元素不给line-height无法垂直居中，
+        子元素要vertical-align，
+        父元素必须有line-height（让基线从默认顶部挪下来） */
+        line-height: 200px;
+      }
+      .s6 {
+        display: inline-block;
+        vertical-align: middle;
+
+        line-height: 100px;
+        white-space: nowrap;
+      }
+      /* s7/s8表格实现 */
+      .s7 {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
+      .s8 {
+        margin: auto;
+      }
+      /* s9/s10flex实现 */
+      /* justify-content主轴对齐，align-items交叉轴对齐 */
+      .s9 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      /* s13/s14 2D转换实现 */
+      .s13 {
+        position: relative;
+      }
+      .s14 {
+        position: absolute;
+        left:50%;
+        top:50;
+        /* translateX translateX/Y中间不加， */
+        /* 先让子元素左上角对齐父元素中心，再让子元素挪动translate使其中心与父元素中心对其 */
+        transform: translateX(-50%) translateY(50%);
+        text-align: center;
+      }
+       /* s15/s16flex实现子>父，与前相同 */
+      .s15 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+      .s16 {
+        text-align: center;
+      }
+       /* s17/s18定位+2D变换实现子>父 
+       translateX左负右正，translateY上负下正 */
+      .s18 {
+        position: relative;
+        left: 50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <h3>position</h3>
+    <div class="parent1 s1">
+      <div class="son1 s2">HELLO WORLD</div>
+    </div>
+    <h3>取巧margin无用 需配合flex</h3>
+    <div class="parent1 s3">
+      <div class="son1 s4">HELLO WORLD</div>
+    </div>
+    <h3>inline-block</h3>
+    <div class="parent1 s5">
+      <div class="son1 s6">HELLO WORLD</div>
+    </div>
+    <h3>table-cell</h3>
+    <div class="parent1 s7">
+      <div class="son1 s8">HELLO WORLD</div>
+    </div>
+    <h3>flex</h3>
+    <div class="parent1 s9">
+      <div class="son1 s10">HELLO WORLD</div>
+    </div>
+  </div>
+  <h3>2D transform</h3>
+  <div class="parent1 s13">
+    <div class="son1 s14">HELLO WORLD</div>
+  </div>
+  <h3>son>parent-flex</h3>
+  <div class="parent2 s15">
+    <div class="son2 s16">HELLO WORLD</div>
+  </div>
+  <h3>position+2D transform</h3>
+  <div class="parent2 s17">
+    <div class="son2 s18">HELLO WORLD</div>
+  </div>
+  </body>
+</html>

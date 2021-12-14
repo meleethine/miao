@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS Bin</title>
+    <link rel="stylesheet" href="mi-carousel.css" />
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <!-- 最外层slider，包着input标签
+  往里slides，包着若干side，slide再包着前后label
+  indicators与slides平级，包着label，关联slide中的label -->
+    <!-- 挪动时不能以25%即1/4来写，因为是图片的百分比对应背景图的百分比 -->
+    <!-- --slider-width自定义属性，子元素可继承 -->
+    <div class="slider">
+      <input type="radio" name="slider1" id="i1" checked />
+      <input type="radio" name="slider1" id="i2" />
+      <input type="radio" name="slider1" id="i3" />
+      <input type="radio" name="slider1" id="i4" />
+      <div class="slides">
+        <div class="slide">
+          <label for="i4">prev</label>
+          <label for="i2">next</label>
+          <img
+            src="https://travel.12306.cn/imgs/resources/uploadfiles/images/243945e6-c45d-4870-9cf5-77e488068646_product_W572_H370.jpg"
+            alt=""
+          />
+        </div>
+        <div class="slide">
+          <label for="i1">prev</label>
+          <label for="i3">next</label>
+          <img
+            src="https://travel.12306.cn/imgs/resources/uploadfiles/images/8b36f9a7-f780-4e71-b719-9300109a9ff2_product_W572_H370.jpg"
+            alt=""
+          />
+        </div>
+        <div class="slide">
+          <label for="i2">prev</label>
+          <label for="i4">next</label>
+          <img
+            src="https://travel.12306.cn/imgs/resources/uploadfiles/images/b0c76b21-531b-4af4-a607-cf5672c72ded_product_W572_H370.jpg"
+            alt=""
+          />
+        </div>
+        <div class="slide">
+          <label for="i3">prev</label>
+          <label for="i1">next</label>
+          <img
+            src="https://travel.12306.cn/imgs/resources/uploadfiles/images/6d77d0ea-53d0-4518-b7e9-e53795b4920c_product_W572_H370.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="indicators">
+        <label for="i1"></label>
+        <label for="i2"></label>
+        <label for="i3"></label>
+        <label for="i4"></label>
+      </div>
+    </div>
+  </body>
+</html>

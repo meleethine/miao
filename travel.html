@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      background-color: rgba(0, 0, 0, 0.08);
+      box-shadow: inset 0 0 1px red;
+    }
+    .slider {
+      width: 300px;
+      margin: auto;
+    }
+    .slice {
+      width: 300px;
+      height: 200px;
+    }
+    .slice > div {
+      width: 25%;
+      height: 100%;
+      position: relative;
+      float: left;
+      overflow: hidden;
+    }
+    .slice > div span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+      /* 所有span默认定位在每个div的左侧 */
+      left: -100%;
+      transition: 1s;
+      z-index: 10;
+       /* 若无动画切换之间背景是灰色，即无图 */
+      animation: leave 1s;
+    }
+    input:nth-child(1):checked ~ .slice span:nth-child(1),
+    input:nth-child(2):checked ~ .slice span:nth-child(2),
+    input:nth-child(3):checked ~ .slice span:nth-child(3),
+    input:nth-child(4):checked ~ .slice span:nth-child(4) {
+      /* 由-100%-0开始进场 */
+      left: 0;
+      animation: none;
+    }
+    @keyframes leave {
+      from {
+        left: 0;
+      }
+      to {
+        left: 100%;
+      }
+    }
+    .slice span:nth-child(1) {
+      background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/1716878f-79a2-4db1-af8c-b9c2039f0b3c_product_W572_H370.jpg);
+    }
+    .slice span:nth-child(2) {
+      background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/6d77d0ea-53d0-4518-b7e9-e53795b4920c_product_W572_H370.jpg);
+    }
+    .slice span:nth-child(3) {
+      background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/8b36f9a7-f780-4e71-b719-9300109a9ff2_product_W572_H370.jpg);
+    }
+    .slice span:nth-child(4) {
+      background-image: url(https://travel.12306.cn/imgs/resources/uploadfiles/images/d9ae79de-2f3f-4e9f-ad6e-bdc291dda92a_product_W572_H370.jpg);
+    }
+    .slice > div:nth-child(2) span  {
+        background-position: -75px 0;
+    }
+    .slice > div:nth-child(3) span  {
+        background-position: -150px 0;
+    }
+    .slice > div:nth-child(4) span  {
+        background-position: -225px 0;
+    }
+  </style>
+  <body>
+    <div class="slider">
+      <input type="radio" name="s1" checked />
+      <input type="radio" name="s1" />
+      <input type="radio" name="s1" />
+      <input type="radio" name="s1" />
+      <div class="slice">
+        <div>
+          <span> 1-1 </span>
+          <span> 2-1 </span>
+          <span> 3-1 </span>
+          <span> 4-1 </span>
+        </div>
+        <div>
+          <span> 1-2 </span>
+          <span> 2-2 </span>
+          <span> 3-2 </span>
+          <span> 4-2 </span>
+        </div>
+        <div>
+          <span> 1-3 </span>
+          <span> 2-3 </span>
+          <span> 3-3 </span>
+          <span> 4-3 </span>
+        </div>
+        <div>
+          <span> 1-4 </span>
+          <span> 2-4 </span>
+          <span> 3-4 </span>
+          <span> 4-4 </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

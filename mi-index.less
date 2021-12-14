@@ -1,0 +1,498 @@
+* {
+  box-shadow: inset 0 0 1px red;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei,
+    Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+/* @@闭合浮动要诀 */
+.clear-fix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+// 若site-nav不给高度,背景颜色无法显示.或者给高,或者闭合浮动
+.site-nav {
+  background-color: #333;
+  > nav {
+    width: 1226px;
+    margin: auto;
+    font-size: 12px;
+    // 不给左边主体导栏浮动会出现两行
+    .top-nav-left {
+      float: left;
+    }
+    // 增加行高再将行内元素设置为inline-block撑起整行
+    // 不给行高inline-block无法撑起
+    a {
+      color: #b0b0b0;
+      line-height: 40px;
+      display: inline-block;
+    }
+    .sep {
+      color: #424242;
+    }
+    .top-nav-right {
+      float: right;
+      background-color: #424242;
+      /* 购物车的标签和hover列表有冲突,
+      在hover link的同时list要出现,且
+      切到list时(hover link失效)list依旧要在.
+      故在外额外包一层cart解决 */
+      .shopping-cart {
+        background-color: #424242;
+        float: right;
+        position: relative;
+        width: 120px;
+        // 元素挤到一块,设置width,inline-block,textalignceter
+        .shopping-cart-link {
+          width: 120px;
+          display: inline-block;
+          text-align: center;
+        }
+        // transition时间不可设置在&:hover上,否则单向
+        // 没设高度时文本中的字会超出,需要overflow隐藏,
+        // 在hover后高度出来字才出来
+        .shopping-cart-list {
+          height: 0;
+          right: 0;
+          top: 100%;
+          xdisplay: none;
+          position: absolute;
+          width: 250px;
+          transition: 0.6s;
+          overflow: hidden;
+          background-color: white;
+        }
+        &:hover {
+          background-color: white;
+          .shopping-cart-link {
+            color: #ff6700;
+          }
+          .shopping-cart-list {
+            xdisplay: block;
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+.product-nav {
+  position: relative;
+  height: 100px;
+
+  .product-nav-inner {
+    width: 1226px;
+    margin: auto;
+    .logo-link {
+      float: left;
+      // img设置block边角间隙消失
+      img {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin-top: 25px;
+        margin-right: 185px;
+      }
+    }
+    ul.product-menu {
+      float: left;
+      display: flex;
+      font-size: 16px;
+      // :hover不能放在li上面,否则出现每次挪到新li上面会快速收缩切换
+      // 放在ul上不存在闪框问题
+      &:hover {
+        .product-sub-menu {
+          height: 232px;
+          border-top: 1px solid #e0e0e0;
+        }
+      }
+      li {
+        text-align: center;
+        // height+inline-block实现撑起高度
+        // height+line-height好基友在中间
+        a {
+          padding: 0 10px;
+          height: 100px;
+          line-height: 100px;
+          display: inline-block;
+        }
+        // @z-index不能要px!!!
+        &:hover {
+          z-index: 100;
+        }
+      }
+
+      .product-sub-menu {
+        position: absolute;
+        height: 0px;
+        // 高度设为0后图片还显示,因为图片是超出部分,需要hidden
+        overflow: hidden;
+        background-color: white;
+        width: 100%;
+        // 主界面hover有轻微延迟,transition:等待时间,完成时间
+        transition: height 0.2s 0.3s;
+        left: 0;
+        ul {
+          width: 1226px;
+          margin: auto;
+          height: 100%;
+          display: flex;
+          li {
+            width: calc(100% / 3);
+          }
+        }
+      }
+    }
+    .product-menu-search {
+      margin-top: 25px;
+      float: right;
+      // 消除input和button间隙,方法1-flex
+      display: flex;
+      // 方法2-input和button分别float: left,不如1
+      // 浮动无视margin/padding,元素靠在一起
+      input {
+        outline: none;
+        height: 50px;
+        box-sizing: border-box;
+        &:focus {
+          border-color: #ff6700;
+          + button {
+            border-color: #ff6700;
+          }
+        }
+      }
+      button {
+        border-left: none;
+        &:hover {
+          background-color: #ff6700;
+          border-color: #ff6700;
+        }
+      }
+    }
+  }
+}
+.home-nav-container {
+  // ！！触发BFC避免子元素挪动父元素被动挪动
+  overflow: hidden;
+  width: 100%;
+  height: 670px;
+  display: flex;
+  flex-flow: column;
+  .home-hero {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 1227px;
+    height: 460px;
+    // ！margin:0auto垂直为零 水平居中
+    margin: 0 auto;
+    div.site-category {
+      width: 234px;
+      height: 460px;
+      ul.site-category-list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        text-indent: 2em;
+        font-size: 16px;
+        justify-content: space-evenly;
+        flex-flow: column wrap;
+        > li {
+          display: flex;
+          height: 32px;
+          line-height: 32px;
+          em::after {
+            position: absolute;
+            content: ">";
+            left: 170px;
+          }
+          &:hover {
+            z-index: 20;
+            cursor: pointer;
+            background-color: #ff6700;
+            &:nth-child(1) {
+              ul.site-category-item1 li {
+                display: block;
+              }
+            }
+            &:nth-child(2) {
+              ul.site-category-item2 li {
+                display: block;
+              }
+            }
+            &:nth-child(3) {
+              ul.site-category-item3 li {
+                display: block;
+              }
+            }
+            &:nth-child(4) {
+              ul.site-category-item4 li {
+                display: block;
+              }
+            }
+            &:nth-child(5) {
+              ul.site-category-item5 li {
+                display: block;
+              }
+            }
+          }
+          ul.site-category-item1,
+          ul.site-category-item2,
+          ul.site-category-item3,
+          ul.site-category-item4,
+          ul.site-category-item5 {
+            position: absolute;
+            left: 234px;
+            top: 0;
+            height: 100%;
+            flex-flow: column wrap;
+            align-content: space-between;
+            display: flex;
+            // ！外层ul若设置定宽则无法子元素撑开，弹性布局
+            li {
+              // 外层会层叠，且display flex已无法none，故li
+              display: none;
+              width: 248.25px;
+              height: calc(100% / 6);
+              img {
+                // ！vertical-align给图片，转为图片而设
+                vertical-align: middle;
+                color: black;
+                height: 60px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .home-hero-slider {
+      position: relative;
+      width: 993px;
+      height: 100%;
+      overflow: hidden;
+      input {
+        display: none;
+        &:nth-child(1):checked ~ .slides .slide:nth-child(1) img,
+        &:nth-child(2):checked ~ .slides .slide:nth-child(2) img,
+        &:nth-child(3):checked ~ .slides .slide:nth-child(3) img,
+        &:nth-child(4):checked ~ .slides .slide:nth-child(4) img{
+          left: 0;
+          animation: none;
+        }
+        &:nth-child(1):checked ~ .slides .slide:nth-child(1) label,
+        &:nth-child(2):checked ~ .slides .slide:nth-child(2) label,
+        &:nth-child(3):checked ~ .slides .slide:nth-child(3) label,
+        &:nth-child(4):checked ~ .slides .slide:nth-child(4) label{
+          
+          display: block;
+          z-index: 9;
+        }
+        &:nth-child(1):checked ~  .indicators label:nth-child(1),
+        &:nth-child(2):checked ~  .indicators label:nth-child(2),
+        &:nth-child(3):checked ~  .indicators label:nth-child(3),
+        &:nth-child(4):checked ~  .indicators label:nth-child(4){
+          background-color: #e0e0e0;
+        }
+      }
+      .slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .slide {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          label {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 70px;
+            line-height: 70px;
+            &:hover {
+              background-color: rgba(0,0,0,0.5);
+            }
+            &:nth-child(1){
+              left: 0;
+              border-radius: 0 10px 10px 0;
+            }
+            &:nth-child(2){
+              right: 0;
+              border-radius: 10px 0 0 10px;
+            }
+          }
+          img {
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: 1s;
+            animation: leave 1s;
+          }
+
+        }
+      }
+      .indicators {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        label {
+          float: left;
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          border: 3px solid;
+          border-radius: 999px;
+        }
+      }
+      @keyframes leave {
+        from {
+          left: 0;
+        }
+        to {
+          left: 100%;
+        }
+      }
+    }
+  }
+  .side-panel {
+    display: flex;
+    margin: auto;
+    width: 1227px;
+    justify-content: space-between;
+    ul{
+    width: 234px;
+    height: 170px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+      li {
+        width: 76px;
+        height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+          display: flex;
+          flex-flow: column;
+          width: 70px;
+          height: 64px;
+          height: 82px;
+          text-align: center;
+          img {
+            width: 24px;
+            height: 24px;
+            margin: auto;
+            
+          }
+        }
+  
+      }
+    }
+    span {
+      img {
+        width: 316px;
+        height: 170px;
+
+        &:hover{
+        transform:translateY(-1px) ;
+        box-shadow: 3px 3px 20px dimgrey;
+        transition: .6s;
+        }
+      }
+    }
+    
+  }
+}
+.bar1 {
+  width: 1226px;
+  height: 120px;
+  margin: 0 auto;
+}
+.category1 {
+  width: 1226px;
+  margin: 0 auto;
+  div.title {
+      display: block;
+      line-height: 60px;
+      height: 60px;
+      width: 1226px;
+    span {
+      font-size: 25px;
+    }
+    a {
+      float: right;
+      &::after {
+        content: ">";
+      }
+    }
+    
+  }
+  .left {
+    width: 234px;
+    height: 614px;
+    float: left;
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 3px 3px 20px dimgrey;
+      transition: .6s;
+    }
+  }
+  .right {
+    float: right;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-content:space-between;
+    width: 992px;
+    height: 614px;
+    span {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      width: 234px;
+      height: 300px;
+      img {
+        width: 160px;
+        height: 160px;
+      }
+      h3 {
+        text-align: center;
+        width: 234px;
+        margin: 0;
+      }
+      p {
+        width: 234px;
+        text-align: center;
+        margin: 7px;
+        &:nth-child(3) {
+          color: gray;
+        }
+        &:nth-child(4) {
+          color: #ff6700;
+        }
+      }
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 3px 3px 20px dimgrey;
+        transition: .6s;
+      }
+      
+    }
+  }
+}
