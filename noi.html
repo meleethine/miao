@@ -159,7 +159,7 @@
   console.log(an);
 </script>
 
-<script  id="ch0103/19">
+<script type="x" id="ch0103/19">
   var A = Number(prompt("A"));
   var B = Number(prompt("B"));
   console.log(A*B);
@@ -170,3 +170,182 @@
   var p = Math.pow(2, n);
   console.log(p);
 </script>
+
+<script type="x" id="ch0104/01">
+  var n = Number(prompt("n"));
+  if(n>0)
+  console.log('positive');
+  else if(n<0)
+  console.log('negative');
+  else
+  console.log('zero');
+</script>
+
+<script type="x" id="ch0104/02">
+  var n = Number(prompt("n"));
+  n=n.toFixed(2);
+  if(n>0)
+  console.log(n);
+  console.log(-n);
+</script>
+
+<script type="x" id="ch0104/03">
+  var n = Number(prompt("n"));
+  var p=n%2;
+  if(p=0)
+  console.log('even');
+  else
+  console.log('odd');
+</script>
+
+<script type="x" id="ch0104/04">
+  var n = String(prompt("n"));
+  var p=n.charCodeAt()%2;
+  if(p=1)
+  console.log('YES');
+  else
+  console.log('NO');
+</script>
+
+<script type="x" id="ch0104/05">
+  var n = Number(prompt("n"));
+  var m = Number(prompt("m"));
+  if(n>m)
+  console.log('>');
+  else if(n<m)
+  console.log('<');
+  else
+  console.log('=');
+</script>
+
+<script type="x" id="ch0104/06">
+  var n = Number(prompt("n"));
+  if(n/10<10)
+  console.log(1);
+  else
+  console.log(0);
+</script>
+
+<script type="x" id="ch0104/07">
+  var n = Number(prompt("n"));
+  var m = Number(prompt("m"));
+  var r=n>=10||m>=20?1:0
+  console.log(r);
+</script>
+
+<script type="x" id="ch0104/08">
+  var n = Number(prompt("n"));
+  var r=n%3==0||n%5==0?'YES':'NO'
+  console.log(r);
+</script>
+
+<script type="x" id="ch0104/09">
+  var n = Number(prompt("n"));
+  if (n % 3 == 0) {
+    if(n % 5!=0&&n % 7!=0)
+    console.log(3);
+    if(n % 5==0&&n % 7!=0)
+    console.log(3+' '+5);
+    if(n % 5!=0&&n % 7==0)
+    console.log(3+' '+7);
+    if(n % 5==0&&n % 7==0)
+    console.log(3+' '+5+' '+7);
+  }
+  if (n % 5 == 0){
+    if(n % 3 != 0&&n % 7!=0){
+    console.log(5);
+    }
+    if(n % 3 != 0&&n % 7==0){
+    console.log(3+' '+7);
+    }
+    
+  }
+  if (n % 7 == 0){
+    if(n % 3 != 0&&n % 5!=0){
+    console.log(7);
+    }
+  }
+</script>
+
+<script type="x"  id="ch0104/10">
+  var n = Number(prompt("n"));
+  var m = Number(prompt("m"));
+  if(n>60&&m<60||n<60&&m>60)
+    console.log(1);
+  else
+    console.log(0);
+</script>
+
+<script type="x" id="ch0104/11">
+  var n = Number(prompt("n"));
+  if(n!=1||n!=3||n!=5)
+    console.log('YES');
+  else
+    console.log('NO');
+</script>
+
+<script type="x" id="ch0104/12">
+  var n = Number(prompt("n"));
+  var t1 =n/1.2;
+  var t2 =n/3+50;
+  if(n/t1>n/t2)
+  console.log('WALK');
+  else if(n/t1<n/t2)
+  console.log('BIKE');
+  else
+  console.log('ALL');
+</script>
+
+<script type="x" id="ch0104/13">
+  var x = Number(prompt("x"));
+  var y;
+  if(0 <= x < 5){
+    y=-x+2.5;
+  }
+  else if(5 <= x < 10){
+    y=2-1.5(x-3)(x-3);
+  }
+  else if(10 <= x < 20){
+    y=x/2-1.5;
+  }
+  console.log(y);
+</script>
+
+<script  id="ch0104/14">
+  var a = Number(prompt("a"))
+  var b = String(prompt("b"))
+  var p,y,n
+  if(a>1000){
+    if(b==y){
+      var q=(a-1000)%500
+      if(q>0)
+      p=13+(parseInt((a-1000)/500)+1)*4
+      else
+      p=13+parseInt((a-1000)/500)*4
+    }
+    else
+      p=8+(a-1000)/500*4
+  }
+  if(a<=1000){
+    if(b==y){
+      p=13
+    }
+    else
+      p=8
+  }
+  console.log(p);
+</script>
+
+<script type="x" id="ch0104/15"></script>
+
+<script type="x" id="ch0104/16"></script>
+
+<script type="x" id="ch0104/17"></script>
+
+<script type="x" id="ch0104/18"></script>
+
+<script type="x" id="ch0104/19"></script>
+
+<script type="x" id="ch0104/20"></script>
+
+<script type="x" id="ch0104/21"></script>
