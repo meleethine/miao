@@ -836,14 +836,12 @@
 </script>
 
 <script type="x" id="ch0105/32">
-  var n = Number(prompt("n"));
-  var sum=2;
-  var a=2,b=1,t;
-  for(var i=1;i<n;i++){
-   t=a;
-   a=a+b;
-   b=t;
-   sum+=a/b;
+  let n = Number(prompt("n"))
+  let sum=0,b=2,a=1
+  for(let i=1;i<=n;i++){
+    sum += b/a
+    b= b+a
+    a= b-a;
   }
   console.log(sum);
 </script>
@@ -906,21 +904,42 @@
   console.log(sum);
 </script>
 
-<script id="ch0105/38"></script>
+<script type="x" id="ch0105/38">
+  var m = Number(prompt())
+
+for (var i = 0; i < m; i++) {
+  var n = Number(prompt())
+  if (n == 0) {
+    var c = Number(prompt())
+    console.log(0)
+  } else {
+    for (var j = n; j >= 0; j--) {
+      var c = Number(prompt())
+      if (j !== 0) {
+        console.log(c * j)
+      }
+    }
+  }
+}
+</script>
 
 <script type="x" id="ch0105/39">
-  var n = String(prompt("n"));
-  var sum = 0;
-  for (var i = 1; i <= n; i++) {
-    while (i) {
-      if (i % 10 == 7) {
-        break;
-      }
-      i /= 10;
+  let n=Number(prompt("n"))
+  let sum=0;
+  for(let i=1;i<=n;i++){
+    if(!relate7(i)){
+      sum+=i*i
     }
-    sum+=i*i;
   }
   console.log(sum);
+  function relate7(n){
+    if(n%7==0)return true
+    while(n>0){
+      if(n%10==7)return true
+      n= (n-n%10)/10
+    }
+    return false
+  }
 </script>
 
 <script type="x" id="ch0105/40">
@@ -939,52 +958,68 @@
 </script>
 
 <script type="x" id="ch0105/41">
-  var L = Number(prompt("L"));
-  var R = Number(prompt("R"));
-  var x= new Array();
-  var tmp,t= 0;
+  let L = Number(prompt("L"));
+  let R = Number(prompt("R"));
+  let sum = 0;
   for (var i = L; i <= R; i++) {
-    x[i]=i;
-    while(x[i]){
-      tmp=x[i]%10;
-      if(tmp==2)t++;
-      x[i]=Math.trunc(x[i]/10);
+      sum+=see2(i)
+  }
+  console.log(sum);
+  function see2(n) {
+    let count=0
+    while(n>0){
+      if(n%10==2)count++
+      n=(n-n%10)/10
     }
-    }
-    console.log(t);
+    return count
+  }
 </script>
 
 <script type="x" id="ch0105/42">
   var h = Number(prompt("h"));
   var w = Number(prompt("w"));
-  var f = String(prompt("f"));
-  var t = Boolean(prompt("t"));
+  var char = prompt("char");
+  var fill = Number(prompt("fill"));
+  var str = "";
+  for (var i = 0; i < h; i++) {
+    for (var j = 0; j < w; j++) {
+      if (i == 0 || j == 0 || i == h - 1 || j == w - 1) {
+        str += char;
+      } else {
+        if (fill) str += char;
+        else str += "";
+      }
+    }
+    if (i < h - 1) {
+      str += "\n";
+    }
+  }
+
+  console.log(str);
 </script>
 
 <script type="x" id="ch0105/43">
   var n = Number(prompt("n"));
-  for(var i=2;i<Math.sqrt(n);i++){
+  for(var i=2;i*i<n;i++){
     if(n%i==0){
       break;
     }
   }
-  console.log(n%i);
+  console.log(n/i);
 </script>
 
-<script id="ch0105/44">
-
-</script>
+<script id="ch0105/44"></script>
 
 <script type="x" id="ch0105/45">
-  var n = Number(prompt("n"));
-  var d = sum = 0;
-  for(var i=1;d<=n;i++){
-    d+=i;
-    if(d<=n){
-      sum+=i*i;
-    }else{
-      sum+=i*(i+n-d);
-    }
-}
-console.log(sum);
+    var n = Number(prompt("n"));
+    var d = sum = 0;
+    for(var i=1;d<=n;i++){
+      d+=i;
+      if(d<=n){
+        sum+=i*i;
+      }else{
+        sum+=i*(i+n-d);
+      }
+  }
+  console.log(sum);
 </script>

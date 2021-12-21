@@ -13,6 +13,7 @@ body {
 .clear-fix::after {
   content: "";
   display: block;
+  height: 0;
   clear: both;
 }
 ul {
@@ -27,7 +28,7 @@ a {
 .site-nav {
   background-color: #333;
   > nav {
-    width: 1226px;
+    width: 992px;
     margin: auto;
     font-size: 12px;
     // 不给左边主体导栏浮动会出现两行
@@ -289,22 +290,21 @@ a {
         &:nth-child(1):checked ~ .slides .slide:nth-child(1) img,
         &:nth-child(2):checked ~ .slides .slide:nth-child(2) img,
         &:nth-child(3):checked ~ .slides .slide:nth-child(3) img,
-        &:nth-child(4):checked ~ .slides .slide:nth-child(4) img{
+        &:nth-child(4):checked ~ .slides .slide:nth-child(4) img {
           left: 0;
           animation: none;
         }
         &:nth-child(1):checked ~ .slides .slide:nth-child(1) label,
         &:nth-child(2):checked ~ .slides .slide:nth-child(2) label,
         &:nth-child(3):checked ~ .slides .slide:nth-child(3) label,
-        &:nth-child(4):checked ~ .slides .slide:nth-child(4) label{
-          
+        &:nth-child(4):checked ~ .slides .slide:nth-child(4) label {
           display: block;
           z-index: 9;
         }
-        &:nth-child(1):checked ~  .indicators label:nth-child(1),
-        &:nth-child(2):checked ~  .indicators label:nth-child(2),
-        &:nth-child(3):checked ~  .indicators label:nth-child(3),
-        &:nth-child(4):checked ~  .indicators label:nth-child(4){
+        &:nth-child(1):checked ~ .indicators label:nth-child(1),
+        &:nth-child(2):checked ~ .indicators label:nth-child(2),
+        &:nth-child(3):checked ~ .indicators label:nth-child(3),
+        &:nth-child(4):checked ~ .indicators label:nth-child(4) {
           background-color: #e0e0e0;
         }
       }
@@ -324,13 +324,13 @@ a {
             height: 70px;
             line-height: 70px;
             &:hover {
-              background-color: rgba(0,0,0,0.5);
+              background-color: rgba(0, 0, 0, 0.5);
             }
-            &:nth-child(1){
+            &:nth-child(1) {
               left: 0;
               border-radius: 0 10px 10px 0;
             }
-            &:nth-child(2){
+            &:nth-child(2) {
               right: 0;
               border-radius: 10px 0 0 10px;
             }
@@ -343,7 +343,6 @@ a {
             transition: 1s;
             animation: leave 1s;
           }
-
         }
       }
       .indicators {
@@ -374,12 +373,12 @@ a {
     margin: auto;
     width: 1227px;
     justify-content: space-between;
-    ul{
-    width: 234px;
-    height: 170px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    ul {
+      width: 234px;
+      height: 170px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       li {
         width: 76px;
         height: 82px;
@@ -397,10 +396,8 @@ a {
             width: 24px;
             height: 24px;
             margin: auto;
-            
           }
         }
-  
       }
     }
     span {
@@ -408,29 +405,29 @@ a {
         width: 316px;
         height: 170px;
 
-        &:hover{
-        transform:translateY(-1px) ;
-        box-shadow: 3px 3px 20px dimgrey;
-        transition: .6s;
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 3px 3px 20px dimgrey;
+          transition: 0.6s;
         }
       }
     }
-    
   }
 }
 .bar1 {
   width: 1226px;
   height: 120px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .category1 {
   width: 1226px;
-  margin: 0 auto;
+  margin: 20px auto;
+  display: flow-root;
   div.title {
-      display: block;
-      line-height: 60px;
-      height: 60px;
-      width: 1226px;
+    display: block;
+    line-height: 60px;
+    height: 60px;
+    width: 1226px;
     span {
       font-size: 25px;
     }
@@ -440,7 +437,6 @@ a {
         content: ">";
       }
     }
-    
   }
   .left {
     width: 234px;
@@ -449,7 +445,7 @@ a {
     &:hover {
       transform: translateY(-1px);
       box-shadow: 3px 3px 20px dimgrey;
-      transition: .6s;
+      transition: 0.6s;
     }
   }
   .right {
@@ -457,7 +453,7 @@ a {
     display: flex;
     flex-flow: wrap;
     justify-content: space-around;
-    align-content:space-between;
+    align-content: space-between;
     width: 992px;
     height: 614px;
     span {
@@ -490,9 +486,1047 @@ a {
       &:hover {
         transform: translateY(-1px);
         box-shadow: 3px 3px 20px dimgrey;
-        transition: .6s;
+        transition: 0.6s;
       }
-      
+    }
+  }
+}
+.category2 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  // 原containner为titile
+  .container {
+    display: block;
+    width: 1226px;
+    height: 672px;
+    span:nth-child(1) {
+      height: 58px;
+      display: inline-block;
+      line-height: 58px;
+      font-size: 25px;
+      vertical-align: middle;
+      float: left;
+    }
+    span:nth-child(2) {
+      float: right;
+      display: inline-block;
+      line-height: 58px;
+      vertical-align: middle;
+      .c1 {
+        font-size: 18px;
+        display: inline-block;
+        &:hover {
+          z-index: 10;
+          color: #ff6700;
+          ~ div.body1 {
+            visibility: visible;
+          }
+          ~ div.body2 {
+            visibility: hidden;
+          }
+        }
+      }
+      .c2 {
+        font-size: 18px;
+        display: inline-block;
+        .body2 {
+          visibility: hidden;
+          position: absolute;
+          left: 0;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: space-between;
+          width: 1226px;
+          height: 614px;
+          .front {
+            width: 234px;
+            height: 614px;
+            img {
+              width: 234px;
+              height: 614px;
+            }
+            &:hover {
+              transform: translateY(-1px);
+              box-shadow: 3px 3px 20px dimgrey;
+              transition: 0.6s;
+            }
+          }
+          .middle {
+            width: 234px;
+            height: 300px;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 160px;
+              height: 160px;
+            }
+            h3 {
+              text-align: center;
+              width: 234px;
+              margin: 0;
+              line-height: 25px;
+            }
+            p {
+              width: 234px;
+              text-align: center;
+              line-height: 20px;
+              margin: 7px;
+
+              &:nth-child(3) {
+                color: gray;
+              }
+              &:nth-child(4) {
+                color: #ff6700;
+              }
+            }
+            &:hover {
+              transform: translateY(-1px);
+              box-shadow: 3px 3px 20px dimgrey;
+              transition: 0.6s;
+            }
+          }
+          .rear {
+            width: 234px;
+            height: 143px;
+            &:hover {
+              transform: translateY(-1px);
+              box-shadow: 3px 3px 20px dimgrey;
+              transition: 0.6s;
+            }
+          }
+        }
+        &:hover {
+          z-index: 10;
+          color: #ff6700;
+          ~ div.body1 {
+            visibility: hidden;
+          }
+          .body2 {
+            visibility: visible;
+          }
+        }
+      }
+      .body1 {
+        position: absolute;
+        left: 0;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        width: 1226px;
+        height: 614px;
+        .front {
+          width: 234px;
+          height: 614px;
+          img {
+            width: 234px;
+            height: 614px;
+          }
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+        .middle {
+          width: 234px;
+          height: 300px;
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 160px;
+            height: 160px;
+          }
+          h3 {
+            text-align: center;
+            width: 234px;
+            margin: 0;
+            line-height: 25px;
+          }
+          p {
+            width: 234px;
+            text-align: center;
+            margin: 7px;
+            line-height: 20px;
+
+            &:nth-child(3) {
+              color: gray;
+            }
+            &:nth-child(4) {
+              color: #ff6700;
+            }
+          }
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+        .rear {
+          width: 234px;
+          height: 143px;
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+      }
+    }
+  }
+}
+.category3 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  .container {
+    display: block;
+    width: 1226px;
+    height: 672px;
+    span:nth-child(1) {
+      height: 58px;
+      display: inline-block;
+      line-height: 58px;
+      font-size: 25px;
+      vertical-align: middle;
+      float: left;
+    }
+    span:nth-child(2) {
+      float: right;
+      display: inline-block;
+      line-height: 58px;
+      vertical-align: middle;
+      .c1 {
+        font-size: 18px;
+        display: inline-block;
+        &:hover {
+          z-index: 10;
+          color: #ff6700;
+          ~ div.body1 {
+            visibility: visible;
+          }
+          ~ div.body2 {
+            visibility: hidden;
+          }
+        }
+      }
+      .c2 {
+        font-size: 18px;
+        display: inline-block;
+        .body2 {
+          visibility: hidden;
+          position: absolute;
+          left: 234px;
+          display: flex;
+          flex-flow: column wrap;
+          align-items: self-end;
+          justify-content: space-between;
+          width: 992px;
+          height: 614px;
+
+          .middle {
+            width: 234px;
+            height: 300px;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 160px;
+              height: 160px;
+            }
+            h3 {
+              text-align: center;
+              width: 234px;
+              margin: 0;
+              line-height: 25px;
+            }
+            p {
+              width: 234px;
+              text-align: center;
+              line-height: 20px;
+              margin: 7px;
+
+              &:nth-child(3) {
+                color: gray;
+              }
+              &:nth-child(4) {
+                color: #ff6700;
+              }
+            }
+            &:hover {
+              transform: translateY(-1px);
+              box-shadow: 3px 3px 20px dimgrey;
+              transition: 0.6s;
+            }
+          }
+          .rear {
+            width: 234px;
+            height: 143px;
+            &:hover {
+              transform: translateY(-1px);
+              box-shadow: 3px 3px 20px dimgrey;
+              transition: 0.6s;
+            }
+          }
+        }
+        &:hover {
+          z-index: 10;
+          color: #ff6700;
+          ~ div.body1 {
+            visibility: hidden;
+          }
+          .body2 {
+            visibility: visible;
+          }
+        }
+      }
+      .body1 {
+        position: absolute;
+        left: 234px;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: self-end;
+        justify-content: space-between;
+        width: 992px;
+        height: 614px;
+
+        .middle {
+          width: 234px;
+          height: 300px;
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 160px;
+            height: 160px;
+          }
+          h3 {
+            text-align: center;
+            width: 234px;
+            margin: 0;
+            line-height: 25px;
+          }
+          p {
+            width: 234px;
+            text-align: center;
+            margin: 7px;
+            line-height: 20px;
+
+            &:nth-child(3) {
+              color: gray;
+            }
+            &:nth-child(4) {
+              color: #ff6700;
+            }
+          }
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+        .rear {
+          width: 234px;
+          height: 143px;
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+      }
+      .side {
+        position: absolute;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        left: 0;
+        height: 614px;
+        img {
+          width: 234px;
+          height: 300px;
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+      }
+    }
+  }
+}
+// 生活电器页面
+.category4 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  h2 {
+    float: left;
+  }
+  div.container {
+    span {
+      float: left;
+      font-size: 18px;
+      height: 58px;
+      line-height: 58px;
+      display: inline-block;
+      margin-left: 920px;
+      &:nth-of-type(n + 2) {
+        margin-left: 20px;
+      }
+      // 扫地机页面flex
+      &:nth-of-type(1) ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        > li {
+          width: 234px;
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            height: 300px;
+            div.pic {
+              height: 300px;
+              img {
+                height: 300px;
+              }
+            }
+          }
+          &:nth-of-type(n + 3):nth-of-type(-n + 9) {
+            height: 300px;
+            text-align: center;
+            .pic {
+              margin-left: 37px;
+              margin-top: 14px;
+              width: 160px;
+              height: 160px;
+            }
+            h3 {
+              line-height: 25px;
+              margin-top: 0;
+              margin-bottom: 5px;
+            }
+            h5 {
+              line-height: 20px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            }
+            p {
+              line-height: 20px;
+            }
+          }
+
+          &:nth-last-of-type(-n + 2) {
+            height: 143px;
+          }
+        }
+      }
+      // 空净页面float
+      &:nth-of-type(2) ul {
+        > li {
+          position: relative;
+          width: 234px;
+          height: 300px;
+          float: left;
+          margin-left: 14px;
+          text-align: center;
+          &:nth-of-type(1),
+          &:nth-of-type(6) {
+            margin-left: 0px;
+            div.pic {
+              height: 300px;
+              img {
+                height: 300px;
+              }
+            }
+          }
+          &:nth-last-of-type(1) {
+            height: 143px;
+          }
+          &:nth-last-of-type(-n + 3) {
+            margin-top: 14px;
+          }
+        }
+      }
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        ul {
+          > li {
+            position: relative;
+            width: 234px;
+            height: 300px;
+            float: left;
+            margin-left: 14px;
+            text-align: center;
+            &:nth-of-type(1),
+            &:nth-of-type(6) {
+              margin-left: 0px;
+              div.pic {
+                height: 300px;
+                width: 234px;
+                img {
+                  height: 300px;
+                  width: 234px;
+                }
+              }
+            }
+            &:nth-last-of-type(-n + 2) {
+              height: 143px;
+            }
+            &:nth-last-of-type(-n + 6) {
+              margin-top: 14px;
+            }
+          }
+        }
+      }
+      &:nth-of-type(1) ul {
+        visibility: visible;
+      }
+      ul {
+        position: absolute;
+        top: 58px;
+        left: 0px;
+        width: 1226px;
+        height: 614px;
+        visibility: hidden;
+      }
+      &:hover {
+        color: #ff6700;
+        cursor: pointer;
+        z-index: 10;
+        ul {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+.bar2 {
+  width: 1226px;
+  height: 120px;
+  margin: 20px auto;
+  img {
+    width: 1226px;
+    height: 120px;
+  }
+}
+// 厨房电器页面
+.category5 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  h2 {
+    float: left;
+  }
+  div.container {
+    span {
+      float: left;
+      font-size: 18px;
+      height: 58px;
+      line-height: 58px;
+      display: inline-block;
+      margin-left: 880px;
+      &:nth-of-type(n + 2) {
+        margin-left: 20px;
+      }
+      // 净水器页面flex
+      &:nth-of-type(1) ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        > li {
+          width: 234px;
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            height: 300px;
+            div.pic {
+              height: 300px;
+              img {
+                height: 300px;
+              }
+            }
+          }
+          &:nth-of-type(n + 3):nth-of-type(-n + 9) {
+            height: 300px;
+            text-align: center;
+            .pic {
+              margin-left: 37px;
+              margin-top: 14px;
+              width: 160px;
+              height: 160px;
+            }
+            h3 {
+              line-height: 25px;
+              margin-top: 0;
+              margin-bottom: 5px;
+            }
+            h5 {
+              line-height: 20px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            }
+            p {
+              line-height: 20px;
+            }
+          }
+
+          &:nth-last-of-type(-n + 2) {
+            height: 143px;
+          }
+        }
+      }
+      // 烟灶页面float
+      &:nth-of-type(2) ul {
+        > li {
+          position: relative;
+          width: 234px;
+          height: 300px;
+          float: left;
+          margin-left: 14px;
+          text-align: center;
+          &:nth-of-type(1),
+          &:nth-of-type(6) {
+            margin-left: 0px;
+            div.pic {
+              height: 300px;
+              img {
+                height: 300px;
+              }
+            }
+          }
+          &:nth-last-of-type(1) {
+            height: 143px;
+          }
+          &:nth-last-of-type(-n + 3) {
+            margin-top: 14px;
+          }
+        }
+      }
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        ul {
+          > li {
+            position: relative;
+            width: 234px;
+            height: 300px;
+            float: left;
+            margin-left: 14px;
+            text-align: center;
+            &:nth-of-type(1),
+            &:nth-of-type(6) {
+              margin-left: 0px;
+              div.pic {
+                height: 300px;
+                width: 234px;
+                img {
+                  height: 300px;
+                  width: 234px;
+                }
+              }
+            }
+            &:nth-last-of-type(-n + 2) {
+              height: 143px;
+            }
+            &:nth-last-of-type(-n + 6) {
+              margin-top: 14px;
+            }
+          }
+        }
+      }
+      &:nth-of-type(1) ul {
+        visibility: visible;
+      }
+      ul {
+        position: absolute;
+        top: 58px;
+        left: 0px;
+        width: 1226px;
+        height: 614px;
+        visibility: hidden;
+      }
+      &:hover {
+        color: #ff6700;
+        cursor: pointer;
+        z-index: 10;
+        ul {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+// 智能家居页面
+.category6 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  h2 {
+    float: left;
+  }
+  div.container {
+    span {
+      float: left;
+      font-size: 18px;
+      height: 58px;
+      line-height: 58px;
+      display: inline-block;
+      margin-left: 832px;
+      &:nth-of-type(n + 2) {
+        margin-left: 20px;
+      }
+      // 净水器页面flex
+      &:nth-of-type(1) ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        > li {
+          width: 234px;
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            height: 300px;
+            div.pic {
+              height: 300px;
+              img {
+                height: 300px;
+              }
+            }
+          }
+          &:nth-of-type(n + 3):nth-of-type(-n + 9) {
+            height: 300px;
+            text-align: center;
+            .pic {
+              margin-left: 37px;
+              margin-top: 14px;
+              width: 160px;
+              height: 160px;
+            }
+            h3 {
+              line-height: 25px;
+              margin-top: 0;
+              margin-bottom: 5px;
+            }
+            h5 {
+              line-height: 20px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            }
+            p {
+              line-height: 20px;
+            }
+          }
+
+          &:nth-last-of-type(-n + 2) {
+            height: 143px;
+          }
+        }
+      }
+      // 烟灶页面float
+      &:nth-of-type(2) ul {
+        > li {
+          position: relative;
+          width: 234px;
+          height: 300px;
+          float: left;
+          margin-left: 14px;
+          text-align: center;
+          &:nth-of-type(1),
+          &:nth-of-type(6) {
+            margin-left: 0px;
+            div.pic {
+              height: 300px;
+              img {
+                height: 300px;
+              }
+            }
+          }
+          &:nth-last-of-type(1) {
+            height: 143px;
+          }
+          &:nth-last-of-type(-n + 3) {
+            margin-top: 14px;
+          }
+        }
+      }
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        ul {
+          > li {
+            position: relative;
+            width: 234px;
+            height: 300px;
+            float: left;
+            margin-left: 14px;
+            text-align: center;
+            &:nth-of-type(1),
+            &:nth-of-type(6) {
+              margin-left: 0px;
+              div.pic {
+                height: 300px;
+                width: 234px;
+                img {
+                  height: 300px;
+                  width: 234px;
+                }
+              }
+            }
+            &:nth-last-of-type(-n + 2) {
+              height: 143px;
+            }
+            &:nth-last-of-type(-n + 6) {
+              margin-top: 14px;
+            }
+          }
+        }
+      }
+      &:nth-of-type(1) ul {
+        visibility: visible;
+      }
+      ul {
+        position: absolute;
+        top: 58px;
+        left: 0px;
+        width: 1226px;
+        height: 614px;
+        visibility: hidden;
+      }
+      &:hover {
+        color: #ff6700;
+        cursor: pointer;
+        z-index: 10;
+        ul {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+// 运动出行页面
+.category7 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  h2 {
+    float: left;
+  }
+  div.container {
+    span:nth-of-type(1) {
+      color: orangered;
+      ul {
+        visibility: visible;
+      }
+    }
+    &:hover span {
+      // 父元素被选中的时候，子元素变为黑色
+      color: black;
+      transition: none;
+      ul {
+        // 父元素被选中的时候，子元素后代中的ul立马消失，但是 被选中的子元素不会消失
+        visibility: hidden;
+        transition: none;
+      }
+    }
+    span {
+      float: left;
+      font-size: 18px;
+      height: 58px;
+      line-height: 58px;
+      margin-left: 750px;
+      transition: 0s 999s;
+      &:nth-of-type(n + 2) {
+        margin-left: 20px;
+      }
+      &:hover {
+        color: orangered;
+        transition: none;
+      }
+      &:hover ul {
+        visibility: visible;
+        transition: none;
+      }
+      &:nth-of-type(1) ul {
+        display: block;
+      }
+      ul {
+        position: absolute;
+        top: 58px;
+        left: 0px;
+        width: 1226px;
+        height: 614px;
+        visibility: hidden;
+        transition: 0s 999s;
+        li {
+          position: relative;
+          width: 234px;
+          height: 300px;
+          float: left;
+          margin-left: 14px;
+          text-align: center;
+          &:nth-of-type(1),
+          &:nth-of-type(6) {
+            margin-left: 0px;
+            div.pic {
+              height: 300px;
+              width: 234px;
+              img {
+                height: 300px;
+                width: 234px;
+              }
+            }
+          }
+          &:nth-last-of-type(-n + 2) {
+            height: 143px;
+          }
+          &:nth-last-of-type(-n + 6) {
+            margin-top: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bar3 {
+  width: 1226px;
+  height: 120px;
+  margin: 20px auto;
+  img {
+    width: 1226px;
+    height: 120px;
+  }
+}
+// 日用百货页面
+.category8 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  h2 {
+    float: left;
+  }
+  div.container {
+    span:nth-of-type(1) {
+      color: orangered;
+      ul {
+        visibility: visible;
+      }
+    }
+    &:hover span {
+      // 父元素被选中的时候，子元素变为黑色
+      color: black;
+      transition: none;
+      ul {
+        // 父元素被选中的时候，子元素后代中的ul立马消失，但是 被选中的子元素不会消失
+        visibility: hidden;
+        transition: none;
+      }
+    }
+    span {
+      float: left;
+      font-size: 18px;
+      height: 58px;
+      line-height: 58px;
+      margin-left: 780px;
+      transition: 0s 999s;
+      &:nth-of-type(n + 2) {
+        margin-left: 20px;
+      }
+      &:hover {
+        color: orangered;
+        transition: none;
+      }
+      &:hover ul {
+        visibility: visible;
+        transition: none;
+      }
+      &:nth-of-type(1) ul {
+        display: block;
+      }
+      ul {
+        position: absolute;
+        top: 58px;
+        left: 0px;
+        width: 1226px;
+        height: 614px;
+        visibility: hidden;
+        transition: 0s 999s;
+        li {
+          position: relative;
+          width: 234px;
+          height: 300px;
+          float: left;
+          margin-left: 14px;
+          text-align: center;
+          a {
+            display: block;
+            text-decoration: none;
+            div.pic {
+            margin: 20px auto;
+            width: 160px;
+            height: 160px;
+              img {
+              width: 100%;
+              height: 100%;
+              }
+            }
+            h3 {
+              margin-top: 0px;
+              line-height: 23px;
+              margin-bottom: 10px;
+              color: #333;
+
+            }
+            h5 {
+              font-size: 12px;
+              margin-top: 0px;
+              line-height: 15px;
+              color: #B0B0B0;
+            }
+            p {
+              color: orangered;
+              margin-top: 0px;
+
+              em {
+                text-decoration: line-through;
+                color: #B0B0B0;
+                font-size: 14px;
+              }
+            }
+          }
+          &:nth-of-type(1),
+          &:nth-of-type(6) {
+            margin-top: 0px;
+            margin-left: 0px;
+            div.pic {
+              height: 300px;
+              width: 234px;
+              img {
+                height: 300px;
+                width: 234px;
+              }
+            }
+          }
+          &:nth-last-of-type(-n + 2) {
+            height: 143px;
+          }
+          &:nth-last-of-type(-n + 6) {
+            margin-top: 14px;
+          }
+        }
+      }
     }
   }
 }
