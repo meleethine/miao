@@ -1340,106 +1340,10 @@ a {
       }
     }
     span {
-      float: left;
+      float: right;
       font-size: 18px;
       height: 58px;
       line-height: 58px;
-      margin-left: 750px;
-      transition: 0s 999s;
-      &:nth-of-type(n + 2) {
-        margin-left: 20px;
-      }
-      &:hover {
-        color: orangered;
-        transition: none;
-      }
-      &:hover ul {
-        visibility: visible;
-        transition: none;
-      }
-      &:nth-of-type(1) ul {
-        display: block;
-      }
-      ul {
-        position: absolute;
-        top: 58px;
-        left: 0px;
-        width: 1226px;
-        height: 614px;
-        visibility: hidden;
-        transition: 0s 999s;
-        li {
-          position: relative;
-          width: 234px;
-          height: 300px;
-          float: left;
-          margin-left: 14px;
-          text-align: center;
-          &:nth-of-type(1),
-          &:nth-of-type(6) {
-            margin-left: 0px;
-            div.pic {
-              height: 300px;
-              width: 234px;
-              img {
-                height: 300px;
-                width: 234px;
-              }
-            }
-          }
-          &:nth-last-of-type(-n + 2) {
-            height: 143px;
-          }
-          &:nth-last-of-type(-n + 6) {
-            margin-top: 14px;
-          }
-        }
-      }
-    }
-  }
-}
-
-.bar3 {
-  width: 1226px;
-  height: 120px;
-  margin: 20px auto;
-  img {
-    width: 1226px;
-    height: 120px;
-  }
-}
-// 日用百货页面
-.category8 {
-  position: relative;
-  height: 672px;
-  width: 1226px;
-  margin: 20px auto;
-  h2 {
-    float: left;
-  }
-  div.container {
-    span:nth-of-type(1) {
-      color: orangered;
-      ul {
-        visibility: visible;
-      }
-    }
-    &:hover span {
-      // 父元素被选中的时候，子元素变为黑色
-      color: black;
-      transition: none;
-      ul {
-        // 父元素被选中的时候，子元素后代中的ul立马消失，但是 被选中的子元素不会消失
-        visibility: hidden;
-        transition: none;
-      }
-    }
-    span {
-      float: left;
-      font-size: 18px;
-      height: 58px;
-      line-height: 58px;
-      margin-left: 780px;
       transition: 0s 999s;
       &:nth-of-type(n + 2) {
         margin-left: 20px;
@@ -1474,43 +1378,52 @@ a {
             display: block;
             text-decoration: none;
             div.pic {
-            margin: 20px auto;
-            width: 160px;
-            height: 160px;
+              margin: 25px auto;
+              width: 160px;
+              height: 160px;
               img {
-              width: 100%;
-              height: 100%;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            span{
+              width: 234px;
+              height: 143px;
+              img {
+                margin-left: 0px;
+                width: 80px;
+                height: 80px;
               }
             }
             h3 {
-              margin-top: 0px;
+              margin-top: -20px;
               line-height: 23px;
               margin-bottom: 10px;
               color: #333;
-
             }
+           
             h5 {
               font-size: 12px;
-              margin-top: 0px;
+              margin-top: -5px;
               line-height: 15px;
-              color: #B0B0B0;
+              color: #b0b0b0;
             }
             p {
               color: orangered;
-              margin-top: 0px;
+              margin-top: -20px;
 
               em {
                 text-decoration: line-through;
-                color: #B0B0B0;
+                color: #b0b0b0;
                 font-size: 14px;
               }
             }
           }
           &:nth-of-type(1),
           &:nth-of-type(6) {
-            margin-top: 0px;
-            margin-left: 0px;
+            margin-left: 0;
             div.pic {
+              margin: auto;
               height: 300px;
               width: 234px;
               img {
@@ -1524,6 +1437,170 @@ a {
           }
           &:nth-last-of-type(-n + 6) {
             margin-top: 14px;
+          }
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.bar3 {
+  width: 1226px;
+  height: 120px;
+  margin: 20px auto;
+  img {
+    width: 1226px;
+    height: 120px;
+  }
+}
+// 日用百货页面
+.category8 {
+  position: relative;
+  height: 672px;
+  width: 1226px;
+  margin: 20px auto;
+  h2 {
+    float: left;
+    margin-right: 838px;
+  }
+  div.container {
+    span:nth-of-type(1) {
+      color: orangered;
+      ul {
+        visibility: visible;
+      }
+    }
+    &:hover span {
+      // 父元素被选中的时候，子元素变为黑色
+      color: black;
+      transition: none;
+      ul {
+        // 父元素被选中的时候，子元素后代中的ul立马消失，但是 被选中的子元素不会消失
+        visibility: hidden;
+        transition: none;
+      }
+    }
+    span {
+      float: left;
+      font-size: 18px;
+      height: 58px;
+      line-height: 58px;
+      transition: 0s 999s;
+      &:nth-of-type(n + 2) {
+        margin-left: 20px;
+      }
+      &:hover {
+        color: orangered;
+        transition: none;
+      }
+      &:hover ul {
+        visibility: visible;
+        transition: none;
+      }
+      &:nth-of-type(1) ul {
+        display: block;
+      }
+      h5.sort{
+        margin:auto;
+      }
+      ul {
+        position: absolute;
+        top: 58px;
+        left: 0px;
+        width: 1226px;
+        height: 614px;
+        visibility: hidden;
+        transition: 0s 999s;
+        li {
+          position: relative;
+          width: 234px;
+          height: 300px;
+          float: left;
+          margin-left: 14px;
+          text-align: center;
+          a {
+            display: block;
+            text-decoration: none;
+            div.pic {
+              margin: 25px auto;
+              width: 160px;
+              height: 160px;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            span{
+              width: 234px;
+              height: 143px;
+              img {
+                margin-top: 15px;
+                margin-left: 110px;
+                width: 80px;
+                height: 80px;
+              }
+              h3 {
+                margin-top: -90px;
+                width: 130px;
+              }
+              p {
+                margin-top: -30px;
+                width: 130px;
+              }
+            }
+            h3 {
+              margin-top: -20px;
+              line-height: 23px;
+              margin-bottom: 10px;
+              color: #333;
+            }
+           
+            h5 {
+              font-size: 12px;
+              margin-top: -5px;
+              line-height: 15px;
+              color: #b0b0b0;
+            }
+            p {
+              color: orangered;
+              margin-top: -20px;
+
+              em {
+                text-decoration: line-through;
+                color: #b0b0b0;
+                font-size: 14px;
+              }
+            }
+          }
+          &:nth-of-type(1),
+          &:nth-of-type(6) {
+            margin-left: 0;
+            div.pic {
+              margin: auto;
+              height: 300px;
+              width: 234px;
+              img {
+                height: 300px;
+                width: 234px;
+              }
+            }
+          }
+          &:nth-last-of-type(-n + 2) {
+            height: 143px;
+          }
+          &:nth-last-of-type(-n + 6) {
+            margin-top: 14px;
+          }
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 20px dimgrey;
+            transition: 0.6s;
           }
         }
       }

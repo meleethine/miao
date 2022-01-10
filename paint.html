@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid aqua;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="900" height="400"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated' //放大时的插帧方式：不插帧，直接放大像素
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = '#66ccff') {
+    x = Math.round(x)
+    y = Math.round(y)
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+</script>
+<script>
+
+  // 在 坐标 (42, 42) 画出一个点
+  dot(42, 42)
+
+  // 画一条实线
+  for (var i=0; i<100; i++) dot(i, 10,'rgb(10,3,3)')
+
+  // 画一条一个实点一个空点的虚线
+  for (var i=0; i<100; i+=2) dot(100, i,'rgb(255,3,3)')
+
+  // 画一条两个实点两个空点的虚线
+  for (var i=100; i<=200; i+=4) {
+    dot(100,i,'rgb(20,10,29')
+    dot(100,i+1,'rgb(20,255,29')
+  }
+
+  // 画一条三个实点两个空点的虚线
+  for (var i=100; i+5<=200; i+=5) {
+    dot(  i, 100)
+    dot(i+1, 100)
+    dot(i+2, 100)
+  }
+
+  // 画一条45度的斜线 
+  for (var i=10; i<100; i++) dot(i, i,'green')
+
+  // 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+  var sqrt_3 = Math.sqrt(3)
+  for (var i=0; i<100; i++) {
+    dot( i/sqrt_3, i )
+  }
+
+  // 画一条跨越画布左上角和右下角的对角线
+  for (var i=0; i<900; i++) {
+    dot( i, i*4/9 )
+  }
+
+  // 画一个空心矩形
+  for (var i=400; i<500; i++) {
+    dot(i, 0,'rgb(1,45,65)')
+    dot(i, 100,'rgb(1,255,65)')
+    dot(400, i-400,'rgb(167,45,65)')
+    dot(500, i-400,'rgb(19,45,233)')
+  }
+
+  // 画一个实心矩形
+  //希望图片缩小而色彩不受影响，则i，j/100再*256
+ for (var i=0;i<128;i++){
+   for(var j=0;j<128;j++){
+     var color = 'rgb('+i/100*256+','+j/100*256+',255)'
+     dot(i+50,j+250,color)
+    }
+ }
+
+  // 画两个个空心的圆，居中：
+   var r1=r2=50
+    var rx1=575,ry1=160
+  var rx2=425,ry2=120
+  for(var i=0;i<360;i++){
+    dot(r1*Math.cos(i)+rx1,r1*Math.sin(i)+ry1)
+    dot(r2*Math.cos(i)+rx2,r2*Math.sin(i)+ry2)
+  }
+
+  // 画一个实心的圆，半径至少为100像素
+var r=100
+var rx=ry=100
+  for (i=0;i<200;i++) {
+    for (j=0;j<200;j++) {
+      if((rx-i)**2+(ry-j)**2<=r**2){
+        dot(i,j)
+      }  
+    }
+    }
+  
+for(var theta=0;theta<=Math.PI*2;theta+=0.0001){
+  var x=Math.sin(theta)*150
+  var y=Math.cos(theta)*150
+  dot(x+500,y+150)
+}
+
+
+  // 画一个【大小合适】的sin(x)的图像
+  for (var i=0; i<300; i++) {
+    dot(
+      i+350,
+      140+Math.sin(i*Math.PI/150)*Math.PI*15
+    )
+  }
+
+  // 画出rgb色彩空间的某一面（尺寸要大于100x100）
+  // 尝试将其每个点的坐标乘以一个矩阵
+  // 可以考虑如下几种矩阵：
+  //    2 0
+  //    0 2
+  //    ------
+  //    1  0.27
+  //    0  1
+  //    ------
+  //    0.5    0.87
+  //    -0.87  0.5
+  for (var i=200; i<300; i++) {
+    for (var j=300; j<400; j++) {
+      
+      var color = 'rgb(' + i +','+j+',128)'
+      dot(
+        i,
+        j,
+        color
+      )
+    }
+  }
+
+
+</script>
+</html>

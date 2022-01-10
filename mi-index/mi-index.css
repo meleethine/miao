@@ -1302,11 +1302,10 @@ a {
   transition: none;
 }
 .category7 div.container span {
-  float: left;
+  float: right;
   font-size: 18px;
   height: 58px;
   line-height: 58px;
-  margin-left: 750px;
   transition: 0s 999s;
 }
 .category7 div.container span:nth-of-type(n + 2) {
@@ -1340,12 +1339,56 @@ a {
   margin-left: 14px;
   text-align: center;
 }
+.category7 div.container span ul li a {
+  display: block;
+  text-decoration: none;
+}
+.category7 div.container span ul li a div.pic {
+  margin: 25px auto;
+  width: 160px;
+  height: 160px;
+}
+.category7 div.container span ul li a div.pic img {
+  width: 100%;
+  height: 100%;
+}
+.category7 div.container span ul li a span {
+  width: 234px;
+  height: 143px;
+}
+.category7 div.container span ul li a span img {
+  margin-left: 0px;
+  width: 80px;
+  height: 80px;
+}
+.category7 div.container span ul li a h3 {
+  margin-top: -20px;
+  line-height: 23px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.category7 div.container span ul li a h5 {
+  font-size: 12px;
+  margin-top: -5px;
+  line-height: 15px;
+  color: #b0b0b0;
+}
+.category7 div.container span ul li a p {
+  color: orangered;
+  margin-top: -20px;
+}
+.category7 div.container span ul li a p em {
+  text-decoration: line-through;
+  color: #b0b0b0;
+  font-size: 14px;
+}
 .category7 div.container span ul li:nth-of-type(1),
 .category7 div.container span ul li:nth-of-type(6) {
-  margin-left: 0px;
+  margin-left: 0;
 }
 .category7 div.container span ul li:nth-of-type(1) div.pic,
 .category7 div.container span ul li:nth-of-type(6) div.pic {
+  margin: auto;
   height: 300px;
   width: 234px;
 }
@@ -1359,6 +1402,11 @@ a {
 }
 .category7 div.container span ul li:nth-last-of-type(-n + 6) {
   margin-top: 14px;
+}
+.category7 div.container span ul li:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 20px dimgrey;
+  transition: 0.6s;
 }
 .bar3 {
   width: 1226px;
@@ -1377,6 +1425,7 @@ a {
 }
 .category8 h2 {
   float: left;
+  margin-right: 838px;
 }
 .category8 div.container span:nth-of-type(1) {
   color: orangered;
@@ -1397,7 +1446,6 @@ a {
   font-size: 18px;
   height: 58px;
   line-height: 58px;
-  margin-left: 780px;
   transition: 0s 999s;
 }
 .category8 div.container span:nth-of-type(n + 2) {
@@ -1413,6 +1461,9 @@ a {
 }
 .category8 div.container span:nth-of-type(1) ul {
   display: block;
+}
+.category8 div.container span h5.sort {
+  margin: auto;
 }
 .category8 div.container span ul {
   position: absolute;
@@ -1436,7 +1487,7 @@ a {
   text-decoration: none;
 }
 .category8 div.container span ul li a div.pic {
-  margin: 20px auto;
+  margin: 25px auto;
   width: 160px;
   height: 160px;
 }
@@ -1444,34 +1495,52 @@ a {
   width: 100%;
   height: 100%;
 }
+.category8 div.container span ul li a span {
+  width: 234px;
+  height: 143px;
+}
+.category8 div.container span ul li a span img {
+  margin-top: 15px;
+  margin-left: 110px;
+  width: 80px;
+  height: 80px;
+}
+.category8 div.container span ul li a span h3 {
+  margin-top: -90px;
+  width: 130px;
+}
+.category8 div.container span ul li a span p {
+  margin-top: -30px;
+  width: 130px;
+}
 .category8 div.container span ul li a h3 {
-  margin-top: 0px;
+  margin-top: -20px;
   line-height: 23px;
   margin-bottom: 10px;
   color: #333;
 }
 .category8 div.container span ul li a h5 {
   font-size: 12px;
-  margin-top: 0px;
+  margin-top: -5px;
   line-height: 15px;
-  color: #B0B0B0;
+  color: #b0b0b0;
 }
 .category8 div.container span ul li a p {
   color: orangered;
-  margin-top: 0px;
+  margin-top: -20px;
 }
 .category8 div.container span ul li a p em {
   text-decoration: line-through;
-  color: #B0B0B0;
+  color: #b0b0b0;
   font-size: 14px;
 }
 .category8 div.container span ul li:nth-of-type(1),
 .category8 div.container span ul li:nth-of-type(6) {
-  margin-top: 0px;
-  margin-left: 0px;
+  margin-left: 0;
 }
 .category8 div.container span ul li:nth-of-type(1) div.pic,
 .category8 div.container span ul li:nth-of-type(6) div.pic {
+  margin: auto;
   height: 300px;
   width: 234px;
 }
@@ -1485,4 +1554,9 @@ a {
 }
 .category8 div.container span ul li:nth-last-of-type(-n + 6) {
   margin-top: 14px;
+}
+.category8 div.container span ul li:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 20px dimgrey;
+  transition: 0.6s;
 }
