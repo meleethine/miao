@@ -1,6 +1,6 @@
-var meleethine = function () {
+var meleethine = {
   // chunk数组按size长度分小数组
-  function chunk(ary, size) {
+  chunk:function (ary, size) {
     if (size > ary.length) {
      return ary
     }
@@ -16,20 +16,20 @@ var meleethine = function () {
       res.push(tmp)
     }
     return res
-  }
+  },
   // compact清除非真数组元素
   /**
    * 
    * @param {*} ary 
    * @returns 
    */
-  function compact(ary) {
+   compact:function (ary) {
     let res = []
     for (let i = 0; i < ary.length; i++){
       if(ary[i]) res.push(a[i])
     }
     return res
-  }
+  },
   // 删除左边元素（从头删）
   // 先弹后塞
   /**
@@ -38,14 +38,14 @@ var meleethine = function () {
    * @param {删除的位数} n 
    * @returns 
    */
-  function drop(ary, n = 1) {
+   drop:function (ary, n = 1) {
     let res=[]
     let p = ary.length - n
     while (p--) {
      res.unshift(ary.pop())
     }  
     return res
-  }
+  },
   // 直接删
   // function drop(ary, n = 1) {
   //   let p = ary.length - n
@@ -55,26 +55,26 @@ var meleethine = function () {
   //   return ary
   // }
   // 删除数组右边的值，即从尾部删
-  function dropRight(ary, n = 1) {
+  dropRight:function (ary, n = 1) {
     while (n>0) {
       ary.pop()
       n--
     }
     return ary
-  }
+  },
   /**
    * 
    * @param {*} ary 
    * @param {*} values 
    */
-  function difference(ary, values) {
+   difference:function (ary, values) {
     let res = []
     let s = values.length
     let p = values.pop()
     for (let i = 0; i < ary.length&&s>0; i++,s--){
       if(ary[i]!==p) res.push(ary[i])
     }
-  }
+  },
   /**
    * 
    * @param {*} ary 
@@ -83,11 +83,11 @@ var meleethine = function () {
    * @param {终止位} end 
    * @returns 
    */
-  function fill(ary, val, start = 0, end = ary.length) {
+   fill:function (ary, val, start = 0, end = ary.length) {
     for (let i = start; i < end; i++){
       ary[i]=val
     }
     return ary
-  }
+  },
 
 }
