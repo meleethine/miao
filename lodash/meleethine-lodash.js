@@ -89,5 +89,66 @@ var meleethine = {
     }
     return ary
   },
-
+  flatten: function (ary) {
+    return ary.reduce((res, item) => {
+      if (Array.isArray(item))
+        res.push(...item)
+      else 
+        res.push(item)
+      return res
+    },[])
+  },
+  // 若外层有[],concat会展开数组(一层)项再合并
+  flatten: function (ary) {
+    return ary.reduce((res, item) => {
+      return res.concat(item)
+    },[])
+  },
+  flatten: function (ary) {
+    return [].concat(...ary)
+  },
+  // apply调用,替换... 后[](即this)同前
+  flatten: function (ary) {
+    return [].concat.apply([],ary)
+  },
+  flatten: function (ary) {
+    return flattenDepth(ary)
+  },
+  // 深层展开,展开到底
+  flattenDeep: function (ary) {
+    let res = []
+    for (let i = 0; i < ary.length; i++){
+      let item = ary[i]
+      if (Array.isArray(item)) {
+        res.push(...flattenDeep(item))
+      } else {
+      res.push(item)      
+      }
+    }
+    return res
+  },
+  flattenDeep: function (ary) {
+    return flattenDepth(ary,Infinity)
+  },
+  // 展平n层 flattenDepth调用flatten
+  flattenDepth: function (ary,n=1) {
+    for (let i = 0; i < n; i++){
+      ary=flatten(ary)
+    }
+    return ary 
+  },
+  // 展开n层,第二参数默认1则只展开一层
+  flattenDepth: function (ary,n=1) {
+    if (n == 0) return ary
+    return ary.reduce((res, item) => {
+      if (Array.isArray(item)) {
+        return res.concat(flattenDepth(item,n-1))
+      }
+      return res.concat(item)
+    },[])
+  },  
+  
 }
+
+
+
