@@ -26,7 +26,7 @@ var meleethine = {
    compact:function (ary) {
     let res = []
     for (let i = 0; i < ary.length; i++){
-      if(ary[i]) res.push(a[i])
+      if(ary[i]) res.push(ary[i])
     }
     return res
   },
@@ -38,22 +38,18 @@ var meleethine = {
    * @param {删除的位数} n 
    * @returns 
    */
+  //  slice(1)返回除第一个元素的数组
    drop:function (ary, n = 1) {
-    let res=[]
-    let p = ary.length - n
-    while (p--) {
-     res.unshift(ary.pop())
-    }  
-    return res
+    return ary.slice(n)
   },
   // 直接删
-  // function drop(ary, n = 1) {
-  //   let p = ary.length - n
-  //   for (let i = 0; i < n; i++){
-  //     ary.shift(ary[i])
-  //   }
-  //   return ary
-  // }
+  drop:function (ary, n = 1) {
+    let p = ary.length - n
+    for (let i = 0; i < n; i++){
+      ary.shift(ary[i])
+    }
+    return ary
+  },
   // 删除数组右边的值，即从尾部删
   dropRight:function (ary, n = 1) {
     while (n>0) {
@@ -147,6 +143,20 @@ var meleethine = {
       return res.concat(item)
     },[])
   },  
+  frompairs: function (array) {
+    let obj={}
+    for (let i = 0; i < array.length; i++){
+      obj[array[i][0]]=array[i][1]
+    }
+    return obj
+  },
+  frompairs: function (array) {
+    let obj = {}
+    array.forEach(element => {
+      obj[element[0]]=element[1]
+    });
+    return obj
+  },
   
 }
 
