@@ -272,6 +272,7 @@ var meleethine = {
     return res
   },
   max: function (array) {
+    if(!array[0]) return undefined
     let max = 0
     for (let item of array) {
       if(item>max) max=item
@@ -296,13 +297,13 @@ var meleethine = {
   sum: function (array) {
     return array.reduce((total,array)=>total+=array,0)
   },
-  // concat: function(array, values){
-  //   return array.reduce((array, values)=> {
-  //     if (Array.isArray(values)) array.push(...values)
-  //     else array.push(values)
-  //     return array
-  //   },[])
-  // },
+  concat: function(array, values){
+    return array.reduce((array, values)=> {
+      if (Array.isArray(values)) array.push(...values)
+      else array.push(values)
+      return array
+    },[])
+  },
   // concat: function(array, values){
   //     if (Array.isArray(values))
   //     array.push(...values)
@@ -317,7 +318,28 @@ var meleethine = {
     }
     return res
   },
-
+  toArray: function (value) {
+    let res = []
+    for (let key in value) {
+      res.push(value[key])
+    }
+    return res
+  },
+  isString: function (value) {
+    return typeof (value) == 'string'
+  },
+  isBoolean:function (value) {
+    return typeof (value) == 'boolean'
+  },
+  isObject:function (value) {
+    return typeof (value) == 'object'
+  },
+  isNumber:function (value) {
+    return typeof (value) == 'number'
+  },
+  isUndefined:function (value) {
+    return typeof (value) == 'undefined'
+  },
 }
 
 
