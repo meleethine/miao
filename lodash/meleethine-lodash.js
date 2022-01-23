@@ -297,13 +297,24 @@ var meleethine = {
   sum: function (array) {
     return array.reduce((total,array)=>total+=array,0)
   },
-  concat: function(array, values){
-    return array.reduce((array, values)=> {
-      if (Array.isArray(values)) array.push(...values)
-      else array.push(values)
-      return array
-    },[])
-  },
+  concat: function(array) {
+    let res = [];
+    for (let key in arguments) { // 隐藏的参数都存储在arguments类数组对象中
+        if (Array.isArray(arguments[key])) {
+            res.push(...arguments[key])
+        } else {
+            res.push(arguments[key])
+        }
+    }
+    return res;
+},
+  // concat: function(array, values){
+  //   return array.reduce((array, values)=> {
+  //     if (Array.isArray(values)) array.push(...values)
+  //     else array.push(values)
+  //     return array
+  //   },[])
+  // },
   // concat: function(array, values){
   //     if (Array.isArray(values))
   //     array.push(...values)
