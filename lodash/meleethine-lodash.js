@@ -321,6 +321,14 @@ var meleethine = {
   //     else array.push(values)
   //     return array
   // },
+  
+  size:function (collection) {
+    let cnt = 0
+    for (let key in collection) {
+      cnt++
+    }
+    return cnt
+  },
   repeat: function (string = '', n = 1) {
     let res=''
     if (n == 0) return res
@@ -343,7 +351,7 @@ var meleethine = {
     return typeof (value) == 'boolean'
   },
   isObject:function (value) {
-    return typeof (value) == 'object'
+    return Object.prototype.toString.call(value)=='[object Object]'
   },
   isNumber:function (value) {
     return typeof (value) == 'number'
@@ -351,6 +359,22 @@ var meleethine = {
   isUndefined:function (value) {
     return typeof (value) == 'undefined'
   },
+  isArguments:function(val) {
+    return Object.prototype.toString.call(val)=='[objcet String]' 
+  },
+  isArray: function (val) {
+    return Object.prototype.toString.call(val)=='[object Array]'
+  },
+  isNull: function (val) {
+    return Object.prototype.toString.call(val)=='[object Null]'
+  },
+  isDate: function (val) {
+    return Object.prototype.toString.call(val)=='[object Date]'
+  },
+  isElement: function (val) {
+    return Object.prototype.toString.call(val)=='[object Element]'
+  },
+  
 }
 
 
