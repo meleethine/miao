@@ -58,19 +58,34 @@ var meleethine = {
     }
     return ary
   },
-  /**
-   * 
-   * @param {*} ary 
-   * @param {*} values 
-   */
-   difference:function (ary, values) {
-    let res = []
-    let s = values.length
-    let p = values.pop()
-    for (let i = 0; i < ary.length&&s>0; i++,s--){
-      if(ary[i]!==p) res.push(ary[i])
+  
+  difference: function (array,...values) {
+    let arr = [], res = []
+    for (let i = 0; i < values.length; i++){
+      // 勿忘...
+      arr.push(...values[i])
     }
+    array.forEach(element => {
+      if (!arr.includes(element))
+        res.push(element)
+    });
+    return res
   },
+  // difference: function (array, ...values) {
+  //   let obj = {}
+  //   let res = []
+  //   for (let i = 0; i < values.length; i++){
+  //     for (let j = 0; j < values[i].length; j++){
+  //       // 此处设的值没关紧要,只为证明在obj中
+  //       obj[values[i][j]]=1
+  //     }
+  //   }
+  //   for (let i = 0; i < array.length; i++){
+  //     if (array[i] in obj) continue
+  //     res.push(array[i])
+  //   }
+  //   return res
+  // }
   /**
    * 
    * @param {*} ary 
@@ -166,6 +181,7 @@ var meleethine = {
     for (let i = 0; i < array.length; i++){
       if(array[i]==value) return i
     }
+    return -1
   },
   // 删除最后一元素返回数组
   initial:function (array) {
@@ -177,11 +193,15 @@ var meleethine = {
     return array  
   },
   // 合并数组返回字符串
-  join: function (array, separator = ',') {
-    let res=""
-    for (let i = 0; i < array.length; i++) {
-      res += array[i] + separator
-      if(i==array.length-1) array[i]=array[i]
+  join: function (array, separator) {
+    let res = ''
+    for (let el of array) {
+      if (el = array[array.length - 1])
+        res += el
+      else {
+        // 不加''若el和separator是数字会直接求和
+        res+=''+el+separator
+      }
     }
     return res
   },
@@ -198,6 +218,49 @@ var meleethine = {
     for (let i = array.length-1; i >=0; i--){
       if(array[i]==value) return i
     }
+    return -1
+  },
+  pull: function (array,...values) {
+    for (let i = 0; i < array.length; i++){
+      if (values.includes(array[i])) {
+        array.splice(i, 1)
+        i--
+      } else
+        continue
+    }
+    return array
+  },
+  pull: function (array,...values) {
+    let obj = {}
+    let res=[]
+    for (let i = 0; i < values.length; i++){
+      obj[values[i]]=1
+    }
+    array.forEach(element => {
+      if (!(element in obj)) {
+        res.push(element)
+      }
+    });
+    return res
+  },
+  pull: function (array,...values) {
+    let obj = {}
+    for (let i = 0; i < values.length; i++){
+      obj[values[i]]=1
+    }
+    // 简写 加{}则勿忘return,{}是作用域
+    // let res = array.filter(el => !(el in obj))
+    let res = array.filter(el => {
+      return !(el in obj)
+    })
+    // array写到括号中,第一位是this,非lodash环境会报filter未定义的错
+    // let res = filter(array,el => {
+    //   return !(el in obj)
+    // })
+    return res
+  },
+  pullAll: function (array, values) {
+    return pull(array, ...values)
   },
   // 反转数组
   reverse: function (array) {
@@ -206,6 +269,12 @@ var meleethine = {
       res.push(array.pop())    
     }
     return res
+  },
+  sortedIndex: function (array,value) {
+    let i = 0
+    while (array[i++] < value && i < array.length) {
+    }
+    return i
   },
   // 不带重复元素的数组
   uniq: function (array) {
@@ -374,7 +443,239 @@ var meleethine = {
   isElement: function (val) {
     return Object.prototype.toString.call(val)=='[object Element]'
   },
+  match: function (val) {
+    
+  },
+  isMatch:function(obj = { a: 1, b: 2, c: { x: 1, y: 2 } }, src = { b: 2, c: { y: 2 } }) {
+    for (key in src) {
+      if (src[key] && typeof src[key] == 'object') {
+        if (!isMatch(obj[key], src[key]))
+          return false
+      } else {
+        if (src[key] !== obj[key]) {
+          return false
+        }
+      }
+    }
+    return true
+  },
+  matchesProperty:function(pair) {
+    var key = pair[0]
+    var val = pair[1]
+    
+  },
+  // 返回的函数调用原函数,最多给原函数传n个参数.其他参数不要了
+  ary: function (func, n = func.length) {
+    return function (...arg) {
+      return func(...arg.slice(0, n))
+      // return func.call(this,...args.slice(0,n))
+    }
+  },
   
+  unary: function (func) {
+    return function (...arg) {
+      // 返回一个元素,slice(0,1)默认第一个元素
+      return func(...arg.slice(0, 1))
+      // return func.call(this,...args.slice(0,1))
+    }
+  },
+  // unary: function (func) {
+  //  return this.ary(func,1)
+  // },
+  negate: function (f) {
+    return function (...args) {
+      return !f(...args)
+    }
+  },
+  spread: function () {
+    
+  },
+  before: function (n, func) {
+    var c=0,res
+    return function (...args) {
+      if (c < n) {
+        res= func(...args)
+        c++
+      }
+      return res
+    }
+  },
+  memoize: function (func) {
+    var map=new Map()
+    return function (val) {
+      if (map.has(val)) {
+      return map.get(val)
+    }
+      var res = func(val)
+      map.set(val,res)
+      return res
+    }
+  },
+  toPath: function (path) {
+    if (typeof path == 'string') {
+      return path.split('[')
+        .flatMap(it => it.split(']'))
+        .flatMap(it => it.split('.'))
+          .filter(it => it)
+    }
+    return path
+  },
+  // func没有挂其原型上,故需传入,若在原型则不必写
+  // bind: function (func, thisArg, ...fixedArgs) {
+  //   // thisArg对应的func 函数不需要绑定,因为没使用,故不用绑this
+  //   // func是本函数,函数不需要绑定this,thisArg是绑成null
+  //   return function (...args) {
+  //     var bindedArgs = fixedArgs.slice()
+  //     for (var i=0,j = 0; j < bindedArgs.length; j++){
+  //       if (bindedArgs[j] == _) {
+  //         bindedArgs[j]=args[i]
+  //       }
+  //     }
+  //     // 返回截取出来的项，从写下的索引位置到结束位置
+  //     bindedArgs.push(args.slice(i))
+  //     // return func.call(thisArg,...bindedArgs)
+  //     return func.apply(thisArg,bindedArgs)
+  //   }
+  // },
+  bind: function (func, thisArg, ...fixedArgs) {
+    return function(...args){
+      let bindedArgs = fixedArgs.slice()
+      for (let i = 0, j = 0; i < bindedArgs.length; j++){
+        if (bindedArgs == _) {
+          bindedArgs[j]=args[i++]
+        }
+      }
+      bindedArgs.push(args.slice(i))
+      return func.call(thisArg,...bindedArgs)
+    }
+  },
+  get: function (obj, path) {
+    let names = toPath(path)
+    for (let name of names) {
+      obj = obj[name]
+      if (obj == null)
+        return obj
+    }
+    return obj
+  },
+  property: function (name) {
+    return function (obj) {
+      return get(obj,name)
+    }
+  },
+  curry: function (f,n=f.length) {
+    return function (...args) {
+      if (args.length < n) {
+        return curry(f.bind(null,...args),n-args.length)
+      } else {
+        return f(...args)
+      }
+    }
+  },
+  match: function (target) {
+    return function (obj) {
+      for (let key in target) {
+        if (obj[key] !== target[key]) {
+          return false
+        }
+      }
+      return true
+    }
+  },
+  matchesProperty(path, val) {
+    return function (obj) {
+      // 这个路径的这个对象的值与val是否相等
+      return isEqual(get(obj,path),val)
+    }
+  },
+  iteratee: function (predicate) {
+    if (typeof predicate === 'string') {
+      predicate=property(predicate)
+    }
+    if (Array.isArray(predicate)) {
+      predicate=matchesProperty(...predicate)
+    }
+    if (predicate && typeof predicate === 'object') {
+      predicate = matches(predicate)
+    }
+    return predicate
+  },
+  transformIteratee: function (f) {
+    return function (...args) {
+      let last = args.pop()
+      predicate = iteratee(last)
+      return f(...args,predicate)
+    }    
+  },
+  // ary和predicate是不同的两数组
+  filter: function (ary, predicate) {
+    predicate = iteratee(predicate)
+    let res = []
+    for (let i = 0; i < ary.length; i++){
+      // 遍历的常规要传数组和其下标,函数不一定使用后者,但必须传
+      if (predicate(ary[i], i)) {
+        res.push(ary[i])
+      }
+    }
+    return res
+  },
+  // 否定函数,相当于!
+  negate: function (f) {
+    return function (...args) {
+      return !f(...args)
+    }
+  },
+  // 将传入的参数展开
+  spread: function (f) {
+    return function (ary) {
+      return f(...ary)
+      // return f.apply(this,ary)
+    }
+  },
+  // 将传入的参数反转
+  flip: function (f) {
+    return function (...args) {
+      return f(...args.reverse())
+    }
+  },
+  // 在执行n次以前返回调用参数的函数
+  before: function (n, f) {
+    var cnt=0,res
+    return function (...args) {
+      if (cnt++ < n) {
+        res=f(...args)
+      }
+      return res
+    }
+  },
+  // 在执行n次以后返回调用参数的函数
+  after: function (n, f) {
+    var cnt = 0, res
+    return function (...args) {
+      if (cnt > n) {
+        res = f(...args)
+        cnt++
+      } else {
+        cnt++
+      }
+      return res
+    }
+  },
+  // 单个参数)记忆化存储,若之前计算过把结果映射到Map中,再相同计算不再计算,直接返回结果
+  memoize: function (f) {
+    return function (val) {
+      let map = new Map()
+      if (map.has(val))
+        return map.get(val)
+      let res = f(val)
+      map.set(val, res)
+      return res
+    }
+  },
+  // 数组去重
+  uniq: function (ary) {
+    return Array.from(new Set(ary)) 
+    },
 }
 
 
