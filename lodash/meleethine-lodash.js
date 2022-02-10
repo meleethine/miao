@@ -138,9 +138,9 @@ var meleethine = {
     }
     return res
   },
-  flattenDeep: function (ary) {
-    return flattenDepth(ary,Infinity)
-  },
+  // flattenDeep: function (ary) {
+  //   return flattenDepth(ary,Infinity)
+  // },
   // 展平n层 flattenDepth调用flatten
   // flattenDepth: function (ary,n=1) {
   //   for (let i = 0; i < n; i++){
@@ -178,7 +178,7 @@ var meleethine = {
   },
   // 查找数组下标
   indexOf: function (array, value, fromIndex=0) {
-    for (let i = 0; i < array.length; i++){
+    for (let i = fromIndex; i < array.length; i++){
       if(array[i]==value) return i
     }
     return -1
@@ -270,9 +270,54 @@ var meleethine = {
     }
     return res
   },
+  union: function (...array) {
+    let res = []
+    for (let arr of array) {
+      res=res.concat(arr)
+    }
+    for (let i = 0; i < res.length; i++){
+      //  从后把重复的元素剪掉
+      if (res.lastIndexOf(res[i]) !== -1) {
+        res.splice(res.lastIndexOf(res[i]),1)
+      }
+      return res
+    }
+  },
+  union: function (...array) {
+    let res = []
+    for (let arr of array) {
+      // concat操作后返回的新数组,需要接,否则为空
+      res = res.concat(arr)
+      // 或可用push,push原数组操作,不接
+      // res.push(...arr)
+    }
+    let set = new Set(res)
+    return [...set]
+    // 或 return Array.from(set)
+    // 解法2 直接uniq,但非lodash环境会报错
+    // return uniq(res)
+  },
+  union: function (...array) {
+    let arr = []
+    let a = arr.concat(...array)
+    let res = []
+    a.forEach(element => {
+      if (res.indexOf(element) == -1) {
+        res.push(element)
+      }
+    });
+    return res
+  },
   sortedIndex: function (array,value) {
     let i = 0
     while (array[i++] < value && i < array.length) {
+    }
+    return i
+  },
+  sortedIndex: function (array,value) {
+    // i声明不可放for中,会报错undefind
+    let i = 0
+    for (; array[i] < value && i < array.length;i++) {
     }
     return i
   },
@@ -417,7 +462,7 @@ var meleethine = {
     return typeof (value) == 'string'
   },
   isBoolean:function (value) {
-    return typeof (value) == 'boolean'
+    return Object.prototype.toString.call(value)=='[object Boolean]'
   },
   isObject:function (value) {
     return Object.prototype.toString.call(value)=='[object Object]'
