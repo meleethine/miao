@@ -142,22 +142,22 @@ var meleethine = {
   //   return flattenDepth(ary,Infinity)
   // },
   // 展平n层 flattenDepth调用flatten
-  // flattenDepth: function (ary,n=1) {
-  //   for (let i = 0; i < n; i++){
-  //     ary=flatten(ary)
-  //   }
-  //   return ary 
-  // },
-  // 展开n层,第二参数默认1则只展开一层
   flattenDepth: function (ary,n=1) {
-    if (n == 0) return ary
-    return ary.reduce((res, item) => {
-      if (Array.isArray(item)) {
-        return res.concat(flattenDepth(item,n-1))
-      }
-      return res.concat(item)
-    },[])
-  }, 
+    for (let i = 0; i < n; i++){
+      ary=flatten(ary)
+    }
+    return ary 
+  },
+  // 展开n层,第二参数默认1则只展开一层
+  // flattenDepth: function (ary,n=1) {
+  //   if (n == 0) return ary
+  //   return ary.reduce((res, item) => {
+  //     if (Array.isArray(item)) {
+  //       return res.concat(flattenDepth(item,n-1))
+  //     }
+  //     return res.concat(item)
+  //   },[])
+  // }, 
   // 将数组的两两元素进行映射
   frompairs: function (array) {
     let obj={}
