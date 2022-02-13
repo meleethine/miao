@@ -126,16 +126,15 @@ var meleethine = {
   //   return flattenDepth(ary)
   // },
   // 深层展开,展开到底
-  flattenDeep: function (ary) {
+  flattenDeep: function (array) {
     let res = []
-    for (let i = 0; i < ary.length; i++){
-      let item = ary[i]
-      if (Array.isArray(item)) {
-        res.push(...flattenDeep(item))
+    array.forEach(element => {
+      if (Array.from(element)) {
+        res.push(...this.flattenDeep(element))
       } else {
-      res.push(item)      
+        res.push(element)
       }
-    }
+    })
     return res
   },
   // flattenDeep: function (ary) {
@@ -159,14 +158,14 @@ var meleethine = {
   //   },[])
   // }, 
   // 将数组的两两元素进行映射
-  frompairs: function (array) {
+  fromPairs: function (array) {
     let obj={}
     for (let i = 0; i < array.length; i++){
       obj[array[i][0]]=array[i][1]
     }
     return obj
   },
-  // frompairs: function (array) {
+  // fromPairs: function (array) {
   //   let obj = {}
   //   array.forEach(element => {
   //     obj[element[0]]=element[1]
