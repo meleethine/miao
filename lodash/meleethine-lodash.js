@@ -166,13 +166,13 @@ var meleethine = {
     }
     return obj
   },
-  frompairs: function (array) {
-    let obj = {}
-    array.forEach(element => {
-      obj[element[0]]=element[1]
-    });
-    return obj
-  },
+  // frompairs: function (array) {
+  //   let obj = {}
+  //   array.forEach(element => {
+  //     obj[element[0]]=element[1]
+  //   });
+  //   return obj
+  // },
   head: function (array) {
     return array.shift()
   },
@@ -215,7 +215,7 @@ var meleethine = {
   },
   // 从最后往前寻找下标
   lastIndexOf: function (array, value, fromIndex = array.length - 1) {
-    for (let i = array.length-1; i >=0; i--){
+    for (let i = fromIndex; i >=0; i--){
       if(array[i]==value) return i
     }
     return -1
